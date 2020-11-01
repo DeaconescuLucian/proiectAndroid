@@ -51,7 +51,7 @@ public class Statie
         this.id_magistrala = id_magistrala;
     }
 
-    public boolean isBaie() {
+    public boolean getBaie() {
         return baie;
     }
 
@@ -59,7 +59,7 @@ public class Statie
         this.baie = baie;
     }
 
-    public boolean isMancare() {
+    public boolean getMancare() {
         return mancare;
     }
 
