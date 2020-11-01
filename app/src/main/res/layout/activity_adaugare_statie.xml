@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdaugareStatie"
+    android:orientation="vertical">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_id_statie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/id_statie" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_id_magistrala"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/id_magistrala" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/nume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nume" />
+
+    <CheckBox
+        android:id="@+id/cb_baie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/baie" />
+
+    <CheckBox
+        android:id="@+id/cb_mancare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mancare" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/id_vecin1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/id_vecin1" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/id_vecin2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/id_vecin2" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/id_vecin3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/id_vecin3" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adaugare_statie"
+        />
+
+</LinearLayout>

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">proiectAndroid</string>
+    <string name="id_statie">ID statie</string>
+    <string name="id_magistrala">ID magistrala</string>
+    <string name="baie">Baie(true/false)</string>
+    <string name="mancare">Mancare(true/false)</string>
+    <string name="id_vecin1">ID vecin1</string>
+    <string name="id_vecin2">ID vecin2</string>
+    <string name="id_vecin3">ID vecin 3</string>
+    <string name="adaugare_statie">Adaugare statie</string>
+    <string name="nume">Nume</string>
 </resources>
