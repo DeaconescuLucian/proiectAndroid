@@ -18,6 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/timp_asteptare" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/tabela" />
 
     <Button
         android:id="@+id/adaugare_timpi_asteptare"

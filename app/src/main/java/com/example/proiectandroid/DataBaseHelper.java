@@ -2,10 +2,14 @@ package com.example.proiectandroid;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String MAGISTRALE = "MAGISTRALE";
@@ -67,6 +71,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
+        cv.put(ID_STATIE,statie.getId_statie());
         cv.put(NUME_STATIE, statie.getNume());
         cv.put(ID_MAGISTRALA,statie.getId_magistrala());
         cv.put(BAI,statie.getBaie());
@@ -85,4 +90,88 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+
+    public boolean insereazaLegaturi(Legaturi legatura,String tabela)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(ID_VECIN_1,legatura.getId_vecin1());
+        cv.put(ID_VECIN_2,legatura.getId_vecin2());
+        cv.put(TIMPUL,legatura.getTimp());
+        long succes=db.insert(tabela,null,cv);
+        db.close();
+        if(succes==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean insereazaMagistrale(Magistrala mag)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(NUME_MAGISTRALA,mag.getNume());
+        long succes=db.insert(MAGISTRALE,null,cv);
+        db.close();
+        if(succes==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean insereazaTimpDeAsteptare(TimpiAsteptare ta,String Linie)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(INTERVAL_ORAR,ta.getInterval_orar());
+        cv.put(TIMPUL,ta.getTimp());
+        long succes=db.insert(Linie,null,cv);
+        if(succes==-1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public List<Statie> selecteazaStatii()
+    {
+        List<Statie> returnList=new ArrayList<>();
+        String query="SELECT * FROM "+STATII;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                int id_statie=cursor.getInt(0);
+                String nume=cursor.getString(1);
+                int id_mag=cursor.getInt(2);
+                boolean bai=cursor.getInt(3) == 1 ? true : false;
+                boolean magazin=cursor.getInt(4) == 1 ? true : false;
+                int v1=cursor.getInt(5);
+                int v2=cursor.getInt(6);
+                int v3=cursor.getInt(7);
+                Statie statie=new Statie(id_statie,nume,id_mag,bai,magazin,v1,v2,v3);
+                returnList.add(statie);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+
+
+
+
 }
