@@ -19,4 +19,5 @@
     <string name="adaugare_timpi_asteptare">Adaugare timpi asteptare</string>
     <string name="tabela_introducere_date">Tabela introducere date(STATII/LEGATURI)</string>
     <string name="tabela">Tabela</string>
+    <string name="tabela_introducere_date_timpi_asteptare">Tabela introducere date</string>
 </resources>

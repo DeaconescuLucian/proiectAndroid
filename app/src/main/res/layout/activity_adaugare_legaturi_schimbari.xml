@@ -29,7 +29,7 @@
         android:hint="@string/timp_legatura_schimbare" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/tabela_introducere_date"
+        android:id="@+id/tabela_introducere_date_legaturi_schimbari"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/tabela_introducere_date" />
