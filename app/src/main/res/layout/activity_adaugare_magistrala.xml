@@ -7,14 +7,14 @@
     tools:context=".AdaugareMagistrala"
     android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/id_magistrala"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/id_magistrala"
         />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/nume_magistrala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
