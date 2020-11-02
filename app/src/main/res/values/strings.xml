@@ -17,4 +17,5 @@
     <string name="intervalul_orar">Intervalul orar</string>
     <string name="timp_asteptare">Timp asteptare</string>
     <string name="adaugare_timpi_asteptare">Adaugare timpi asteptare</string>
+    <string name="tabela_introducere_date">Tabela introducere date(STATII/LEGATURI)</string>
 </resources>
