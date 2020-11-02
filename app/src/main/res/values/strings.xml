@@ -9,4 +9,12 @@
     <string name="id_vecin3">ID vecin 3</string>
     <string name="adaugare_statie">Adaugare statie</string>
     <string name="nume">Nume</string>
+    <string name="nume_statie">Nume statie</string>
+    <string name="nume_magistrala">Nume magistrala</string>
+    <string name="adaugare_magistrala">Adaugare magistrala</string>
+    <string name="timp_legatura_schimbare">Timp legatura/schimbare</string>
+    <string name="adaugare_legatura_schimbare">Adaugare legatura/schimbare</string>
+    <string name="intervalul_orar">Intervalul orar</string>
+    <string name="timp_asteptare">Timp asteptare</string>
+    <string name="adaugare_timpi_asteptare">Adaugare timpi asteptare</string>
 </resources>
