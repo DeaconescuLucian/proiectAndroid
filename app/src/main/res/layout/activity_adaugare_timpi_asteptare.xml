@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdaugareTimpiAsteptare"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/intervalul_orar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/intervalul_orar" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/timp_asteptare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/timp_asteptare" />
+
+    <Button
+        android:id="@+id/adaugare_timpi_asteptare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adaugare_timpi_asteptare"
+        />
+
+</LinearLayout>
