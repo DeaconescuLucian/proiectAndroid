@@ -7,19 +7,17 @@
     tools:context=".AdaugareMagistrala"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/id_magistrala"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/id_magistrala"
-        />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/tiet_id_magistrala"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/id_magistrala" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nume_magistrala"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/nume_magistrala"
-        />
+        android:hint="@string/nume_magistrala" />
 
     <Button
         android:id="@+id/btn_adaugare_magistrala"
@@ -27,5 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/adaugare_magistrala"
         />
+
+
 
 </LinearLayout>

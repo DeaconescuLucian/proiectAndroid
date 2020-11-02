@@ -3,10 +3,8 @@ package com.example.proiectandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -14,7 +12,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class AdaugareMagistrala extends AppCompatActivity {
 
     Button btn_adaugare_magistrala;
-    EditText tiet_id_magistrala, tiet_nume;
+    TextInputEditText tiet_id_magistrala, tiet_nume;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +23,7 @@ public class AdaugareMagistrala extends AppCompatActivity {
         tiet_id_magistrala=findViewById(R.id.tiet_id_magistrala);
         tiet_nume=findViewById(R.id.nume_magistrala);
 
-//        btn_adaugare_magistrala.setOnClickListener(new View.OnClickListener() {
+        //        btn_adaugare_magistrala.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //

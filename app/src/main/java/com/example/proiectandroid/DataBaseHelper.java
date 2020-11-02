@@ -232,6 +232,26 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return returnList;
     }
 
+    public List<Magistrala> selecteazaMagistrala(String tabela)
+    {
+        List<Magistrala> returnList=new ArrayList<>();
+        String query="SELECT * FROM "+tabela;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query, null);
+        if(cursor.moveToFirst())
+        {
+            do {
+                int id_magistrala=cursor.getInt(0);
+                String nume=cursor.getString(1);
+                Magistrala magistrala=new Magistrala(id_magistrala, nume);
+                returnList.add(magistrala);
+            }
+            while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
 
 
 
