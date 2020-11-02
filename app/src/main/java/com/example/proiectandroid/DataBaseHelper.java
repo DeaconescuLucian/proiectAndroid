@@ -170,6 +170,69 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return returnList;
     }
 
+    public List<Legaturi> selecteazaLegaturi()
+    {
+        List<Legaturi> returnList=new ArrayList<>();
+        String query="SELECT * FROM  LEGATURI";
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                int v1=cursor.getInt(0);
+                int v2=cursor.getInt(1);
+                int timp=cursor.getInt(2);
+                Legaturi leg=new Legaturi(v1,v2,timp);
+                returnList.add(leg);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+    public List<Legaturi> selecteazaSchimbari()
+    {
+        List<Legaturi> returnList=new ArrayList<>();
+        String query="SELECT * FROM  SCHIMBARI";
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                int v1=cursor.getInt(0);
+                int v2=cursor.getInt(1);
+                int timp=cursor.getInt(2);
+                Legaturi leg=new Legaturi(v1,v2,timp);
+                returnList.add(leg);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+    public List<TimpiAsteptare> selecteazaTimpiDeAsteptare(String tabela)
+    {
+        List<TimpiAsteptare> returnList=new ArrayList<>();
+        String query="SELECT * FROM  "+tabela;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                String interval=cursor.getString(0);
+                int timp=cursor.getInt(1);
+                TimpiAsteptare timpi=new TimpiAsteptare(interval,timp);
+                returnList.add(timpi);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+
 
 
 
