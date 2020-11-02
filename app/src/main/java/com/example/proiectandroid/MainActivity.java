@@ -25,9 +25,15 @@ public class MainActivity extends AppCompatActivity {
         btn_adaugare_magistrala.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            Magistrala magistrala=new Magistrala(Integer.parseInt(tiet_id_magistrala.getText().toString()),
-                    tiet_nume.getText().toString());
+                Magistrala magistrala;
+            try {
+                magistrala=new Magistrala(Integer.parseInt(tiet_id_magistrala.getText().toString()),
+                        tiet_nume.getText().toString());
+            }
+            catch (Exception exception)
+            {
+                magistrala=new Magistrala(-1,null);
+            }
 
             DataBaseHelper dataBaseHelper=new DataBaseHelper(MainActivity.this);
             boolean success=dataBaseHelper.insereazaMagistrale(magistrala);
