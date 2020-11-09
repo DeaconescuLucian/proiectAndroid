@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">proiectAndroid</string>
     <string name="id_statie">ID statie</string>
-    <string name="id_magistrala">ID magistrala</string>
+    <string name="id_magistrala">ID linie</string>
     <string name="baie">Baie(true/false)</string>
     <string name="mancare">Mancare(true/false)</string>
     <string name="id_vecin1">ID vecin1</string>
@@ -10,8 +10,8 @@
     <string name="adaugare_statie">Adaugare statie</string>
     <string name="nume">Nume</string>
     <string name="nume_statie">Nume statie</string>
-    <string name="nume_magistrala">Nume magistrala</string>
-    <string name="adaugare_magistrala">Adaugare magistrala</string>
+    <string name="nume_magistrala">Nume linie</string>
+    <string name="adaugare_magistrala">Adaugare linie</string>
     <string name="timp_legatura_schimbare">Timp legatura/schimbare</string>
     <string name="adaugare_legatura_schimbare">Adaugare legatura/schimbare</string>
     <string name="intervalul_orar">Intervalul orar</string>
