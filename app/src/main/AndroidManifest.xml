@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StartActivity"></activity>
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".StartActivity" />
         <activity android:name=".AdaugareTimpiAsteptare" />
         <activity android:name=".Adaugare_legaturi_schimbari" />
         <activity android:name=".AdaugareStatie" />
