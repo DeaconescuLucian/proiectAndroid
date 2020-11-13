@@ -48,6 +48,10 @@ public class Statie
         this.vecini = vecini;
     }
 
+    public Statie()
+    {}
+
+
     @Override
     public String toString() {
         return "Statie{" +

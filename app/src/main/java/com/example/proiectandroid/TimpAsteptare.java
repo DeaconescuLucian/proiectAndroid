@@ -1,16 +1,16 @@
 package com.example.proiectandroid;
 
-public class TimpiAsteptare
+public class TimpAsteptare
 {
     private String interval_orar;
     private int timp;
 
-    public TimpiAsteptare(String interval_orar, int timp) {
+    public TimpAsteptare(String interval_orar, int timp) {
         this.interval_orar = interval_orar;
         this.timp = timp;
     }
 
-    public TimpiAsteptare() {
+    public TimpAsteptare() {
     }
 
     public String getInterval_orar() {
