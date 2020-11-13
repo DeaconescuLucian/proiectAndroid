@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_start);
         btn=findViewById(R.id.buton);
         listview=findViewById(R.id.listview);
         start=findViewById(R.id.et_statie_start);

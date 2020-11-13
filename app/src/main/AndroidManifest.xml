@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdaugareTimpiAsteptare"></activity>
+        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".AdaugareTimpiAsteptare" />
         <activity android:name=".Adaugare_legaturi_schimbari" />
         <activity android:name=".AdaugareStatie" />
         <activity android:name=".MainActivity">
