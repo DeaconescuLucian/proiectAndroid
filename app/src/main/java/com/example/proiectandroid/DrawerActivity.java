@@ -1,13 +1,20 @@
 package com.example.proiectandroid;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,35 +23,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class DrawerActivity extends AppCompatActivity {
+public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    private AppBarConfiguration mAppBarConfiguration;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        configNavigation();
     }
 
     @Override
@@ -54,10 +41,51 @@ public class DrawerActivity extends AppCompatActivity {
         return true;
     }
 
+    private void configNavigation()
+    {
+        //initializare toolbar
+        Toolbar toolbar=findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout=findViewById(R.id.drawer_layout);
+        //legare meniu cu toolbar
+        ActionBarDrawerToggle actionBar=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close) ;
+
+        drawerLayout.addDrawerListener(actionBar);
+
+        NavigationView navigationView=findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        //sincronizeaza drawer
+        actionBar.syncState();
+
+    }
+    private void changeFragment(Fragment fragment)
+    {
+        FragmentTransaction fragmentTransaction=getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.nav_host_fragment_container,fragment);
+        fragmentTransaction.commit();
+    }
+
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_home: {
+                //changeFragment((new HomeFragment()));
+                Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+                break;
+            }
+            case R.id.nav_gallery: {
+                Toast.makeText(this, "gallery pressed", Toast.LENGTH_LONG).show();
+                break;
+            }
+            case R.id.nav_slideshow: {
+                Toast.makeText(this, "slideshow pressed", Toast.LENGTH_LONG).show();
+                break;
+            }
+
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

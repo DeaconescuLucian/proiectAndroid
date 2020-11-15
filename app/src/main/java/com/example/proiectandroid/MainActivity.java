@@ -2,6 +2,7 @@ package com.example.proiectandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,16 +32,23 @@ public class MainActivity extends AppCompatActivity {
     TimpAsteptare ANGHELSALIGNY_PRECIZIEI,DRISTOR1_EROILOR,EROILOR2_ROMANCIERILOR,
             GARADENORD_STRAULESTI,PIPERA_BERCENI,RAULDOAMNEI_EROILOR2,REPUBLICA_DRISTOR2,REPUBLICA_PANTELIMON,VALEAIALOMITEI_EROILOR2;
     ArrayList<Ruta> rute;
+    Button btn_drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start);
+        setContentView(R.layout.activity_main);
         btn=findViewById(R.id.buton);
         listview=findViewById(R.id.listview);
         start=findViewById(R.id.et_statie_start);
         end=findViewById(R.id.et_statie_end);
         setListeners();
+        findViewById(R.id.btn_drawer).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,DrawerActivity.class));
+            }
+        });
     }
 
     private Ruta Djikstra(ArrayList<NodGraf> graf,NodGraf start,String nume_nod_end)
