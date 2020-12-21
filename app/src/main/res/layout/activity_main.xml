@@ -6,29 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/et_statie_start"
+<!--    <EditText-->
+<!--        android:id="@+id/et_statie_start"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Nume Statie"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.023" />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/et_statie_end"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:hint="Nume Statie"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@id/et_statie_start"-->
+<!--        app:layout_constraintVertical_bias="0.1" />-->
+
+    <Spinner
+        android:id="@+id/spinner_statie_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nume Statie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.1"
+        android:entries="@array/statii"
+        android:prompt="@string/alege1"
+        android:spinnerMode="dropdown"
+        />
 
-    <EditText
-        android:id="@+id/et_statie_end"
+    <Spinner
+        android:id="@+id/spinner_statie_end"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nume Statie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/et_statie_start"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toTopOf="@id/spinner_statie_start"
+        app:layout_constraintVertical_bias="0.1"
+        android:entries="@array/statii"
+        android:prompt="@string/alege2"
+        android:spinnerMode="dropdown"
+        />
+
 
     <Button
         android:id="@+id/buton"
@@ -39,7 +70,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/et_statie_end"
+        app:layout_constraintTop_toTopOf="@id/spinner_statie_end"
         app:layout_constraintVertical_bias="0.1" />
 
     <ListView
@@ -52,15 +83,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/buton" />
 
-    <Button
-        android:id="@+id/btn_drawer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="drawer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/listview"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+<!--    <Button-->
+<!--        android:id="@+id/btn_drawer"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="drawer"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/listview"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

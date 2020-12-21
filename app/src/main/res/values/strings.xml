@@ -31,4 +31,64 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="alege1">Alegeti statia de pornire</string>
+    <string name="alege2">Alegeti destinatia</string>
+    <array name="statii">
+        <item>STRAULESTI</item>
+        <item>LAMINORULUI</item>
+        <item>BAZILESCU</item>
+        <item>JIULUI</item>
+        <item>1 MAI</item>
+        <item>GRIVITA</item>
+        <item>BASARAB</item>
+        <item>GARA DE NORD</item>
+        <item>PIPERA</item>
+        <item>AUREL VLAICU</item>
+        <item>AVIATORILOR</item>
+        <item>PIATA VICTORIEI</item>
+        <item>PIATA ROMANA</item>
+        <item>UNIVERSITATE</item>
+        <item>PIATA UNIRII</item>
+        <item>TINERETULUI</item>
+        <item>EROII REVOLUTIEI</item>
+        <item>CONSTANTIN BRANCOVEANU</item>
+        <item>PIATA SUDULUI</item>
+        <item>APARATORII PATRIEI</item>
+        <item>DIMITRIE LEONIDA</item>
+        <item>BERCENI</item>
+        <item>PRECIZIEI</item>
+        <item>PACII</item>
+        <item>GORJULUI</item>
+        <item>LUJERULUI</item>
+        <item>POLITEHNICA</item>
+        <item>EROILOR</item>
+        <item>IZVOR</item>
+        <item>TIMPURI NOI</item>
+        <item>MIHAI BRAVU</item>
+        <item>DRISTOR</item>
+        <item>NICOLAE GRIGORESCU</item>
+        <item>NICOLAE TECLU</item>
+        <item>ANGHEL SALIGNY</item>
+        <item>PANTELIMON</item>
+        <item>REPUBLICA</item>
+        <item>COSTIN GEORGIAN</item>
+        <item>TITAN</item>
+        <item>PIATA MUNCII</item>
+        <item>PIATA IANCULUI</item>
+        <item>OBOR</item>
+        <item>STEFAN CEL MARE</item>
+        <item>PETRACHE POENARU</item>
+        <item>CRANGASI</item>
+        <item>GROZAVESTI</item>
+        <item>ACADEMIA MILITARA</item>
+        <item>ORIZONT</item>
+        <item>FAVORIT</item>
+        <item>TUDOR VLADIMIRESCU</item>
+        <item>PARC DRUMUL TABEREI</item>
+        <item>ROMANCIERILOR</item>
+        <item>VALEA IALOMITEI</item>
+        <item>CONSTANTIN BRANCUSI</item>
+        <item>RAUL DOAMNEI</item>
+    </array>
 </resources>

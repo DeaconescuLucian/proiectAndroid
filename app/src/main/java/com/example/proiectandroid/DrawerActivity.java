@@ -1,5 +1,6 @@
 package com.example.proiectandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,9 +33,10 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
         configNavigation();
+
     }
 
-    @Override
+@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.drawer, menu);
@@ -72,7 +74,8 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         switch (menuItem.getItemId()) {
             case R.id.nav_home: {
                 //changeFragment((new HomeFragment()));
-                Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "home pressed", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(DrawerActivity.this, HomeActivity.class));
                 break;
             }
             case R.id.nav_gallery: {

@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<NodGraf> graf;
     ArrayList<Legaturi> lista1;
     ListView listview;
-    EditText start;
-    EditText end;
+    Spinner spinner_start;
+    Spinner spinner_destinatie;
     TimpAsteptare ANGHELSALIGNY_PRECIZIEI,DRISTOR1_EROILOR,EROILOR2_ROMANCIERILOR,
             GARADENORD_STRAULESTI,PIPERA_BERCENI,RAULDOAMNEI_EROILOR2,REPUBLICA_DRISTOR2,REPUBLICA_PANTELIMON,VALEAIALOMITEI_EROILOR2;
     ArrayList<Ruta> rute;
-    Button btn_drawer;
+//    Button btn_drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btn=findViewById(R.id.buton);
         listview=findViewById(R.id.listview);
-        start=findViewById(R.id.et_statie_start);
-        end=findViewById(R.id.et_statie_end);
+        spinner_start=findViewById(R.id.spinner_statie_start);
+        spinner_destinatie=findViewById(R.id.spinner_statie_end);
         setListeners();
-        findViewById(R.id.btn_drawer).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,DrawerActivity.class));
-            }
-        });
+//        findViewById(R.id.btn_drawer).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(MainActivity.this,DrawerActivity.class));
+//            }
+//        });
     }
 
     private Ruta Djikstra(ArrayList<NodGraf> graf,NodGraf start,String nume_nod_end)
@@ -228,9 +229,9 @@ public class MainActivity extends AppCompatActivity {
                 rute=new ArrayList<>();
                 for(NodGraf nod : graf)
                 {
-                    if(nod.getNume().equals(start.getText().toString()))
+                    if(nod.getNume().equals(spinner_start.getSelectedItem().toString()))
                     {
-                        Ruta ruta=Djikstra(graf,nod,end.getText().toString());
+                        Ruta ruta=Djikstra(graf,nod,spinner_destinatie.getSelectedItem().toString());
                         if(ruta!=null)
                             rute.add(ruta);
                     }
