@@ -35,6 +35,8 @@ public class RuteFragment extends Fragment {
     ListView listview;
     Spinner spinner_start;
     Spinner spinner_destinatie;
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "statii";
@@ -42,15 +44,21 @@ public class RuteFragment extends Fragment {
 
     // TODO: Rename and change types of parameters
     private ArrayList<Integer> mParam1=null;
+    private long pos1;
+    private long pos2;
 
 
     public RuteFragment() {
         // Required empty public constructor
+
     }
 
-    public RuteFragment(ArrayList<Integer> arr) {
+    public RuteFragment(ArrayList<Integer> arr, long position1, long position2) {
         // Required empty public constructor
         mParam1=arr;
+        pos1=position1;
+       pos2=position2;
+
     }
 
     /**
@@ -102,16 +110,18 @@ public class RuteFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onButtonSelected(spinner_start.getSelectedItem().toString(),spinner_destinatie.getSelectedItem().toString());
+                listener.onButtonSelected(spinner_start.getSelectedItem().toString(),spinner_destinatie.getSelectedItem().toString(), spinner_start.getSelectedItemId(), spinner_destinatie.getSelectedItemId());
             }
         });
+        spinner_start.setSelection((int)pos1);
+        spinner_destinatie.setSelection((int)pos2);
         return view;
     }
 
 
     public interface onFragmentButtonSelected
     {
-        public void onButtonSelected(String start,String end);
+        public void onButtonSelected(String start,String end, long position1, long position2);
     }
 
     @Override

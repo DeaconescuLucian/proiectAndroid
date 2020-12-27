@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onButtonSelected(String start,String end) {
+    public void onButtonSelected(String start,String end, long position1, long position2) {
         SimpleDateFormat formatter= new SimpleDateFormat("HH:mm:ss");
         Date date = new Date(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment,new RuteFragment(arr));
+        fragmentTransaction.replace(R.id.container_fragment,new RuteFragment(arr, position1, position2));
         fragmentTransaction.commit();
     }
 
