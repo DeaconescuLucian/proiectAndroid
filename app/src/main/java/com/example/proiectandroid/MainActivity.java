@@ -126,8 +126,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Date date = new Date(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, 0);
+        cal.add(Calendar.HOUR_OF_DAY, 10);
         String ora_curenta=formatter.format(cal.getTime());
+        Log.v("mora",ora_curenta);
         DataBaseHelper dataBaseHelper=new DataBaseHelper(this);
         lista=dataBaseHelper.selecteazaStatii();
         lista1=dataBaseHelper.selecteazaLegaturi();
@@ -157,10 +158,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     rute.add(ruta);
                 }
             }
+            if(nod.getNume().equals(start) && nod.getId_statie()==76)
+            {
+                Ruta ruta=Djikstra(graf,nod,end);
+                if(ruta!=null)
+                {
+                    rute.add(ruta);
+                }
+            }
 
         }
 
         Collections.sort(rute);
+        //Log.v("msg",rute.get(0).toString());
         ArrayList<Integer> arr=new ArrayList<>();
         for (Statie statie: rute.get(0).getStatii()) {
             arr.add(statie.getId_statie());
@@ -174,6 +184,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private Ruta Djikstra(ArrayList<NodGraf> graf,NodGraf start,String nume_nod_end)
     {
+
+
         ArrayList<NodGraf> noduri_nevizitate = new ArrayList<>();
         ArrayList<NodGraf> noduri_vizitate = new ArrayList<>();
         NodGraf lastNode=null;
@@ -199,6 +211,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         {
                             if(extras.getId_linie()==nod.getId_linie())
                             {
+                                if(extras.getId_statie()==161 && nod.getId_statie()==162)
+                                    Log.v("extras","161-162");
                                 for (Legaturi leg : lista1)
                                 {
                                     if (leg.getId_vecin1() == extras.getId_statie() && leg.getId_vecin2() == i) {
@@ -220,7 +234,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                                         lastNode = nod;
                                                     }
                                                 } else {
-                                                    if(nod.getNume().equals(nume_nod_end))
+                                                    if(nod.getNume().equals(nume_nod_end) && lastNode==null)
                                                         lastNode = nod;
                                                 }
 
@@ -305,9 +319,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             Collections.reverse(result);
             Ruta ruta=new Ruta(result,timp);
+            for (NodGraf nod: graf) {
+                nod.setDistance(100000);
+                nod.setId_previous(-1);
+                nod.setVizitat(false);
+            }
             return ruta;
         }
         else
-            return null;
+        {
+            for (NodGraf nod: graf) {
+                nod.setDistance(100000);
+                nod.setId_previous(-1);
+                nod.setVizitat(false);
+            }
+            return null;}
     }
 }
