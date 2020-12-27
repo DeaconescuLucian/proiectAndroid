@@ -34,10 +34,12 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="alege1">Alegeti statia de pornire</string>
     <string name="alege2">Alegeti destinatia</string>
+    <string name="open">Open</string>
+    <string name="close">Open</string>
     <array name="statii">
         <item>STRAULESTI</item>
         <item>LAMINORULUI</item>
-        <item>BAZILESCU</item>
+        <item>PARC BAZILESCU</item>
         <item>JIULUI</item>
         <item>1 MAI</item>
         <item>GRIVITA</item>
@@ -91,4 +93,6 @@
         <item>CONSTANTIN BRANCUSI</item>
         <item>RAUL DOAMNEI</item>
     </array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

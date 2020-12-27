@@ -10,20 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
-        <activity
-            android:name=".HomeActivity"
-            android:label="@string/menu_home"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".AdaugareTimpiAsteptare" />
         <activity android:name=".Adaugare_legaturi_schimbari" />
         <activity android:name=".AdaugareStatie" />
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity" android:theme="@style/Theme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

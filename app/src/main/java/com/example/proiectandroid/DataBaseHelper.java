@@ -116,10 +116,74 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 //        }
 //    }
 
+    public Statie selecteazaStatie(int id)
+    {
+        Statie statie=null;
+        String query="SELECT * FROM "+STATII +" WHERE ID_STATIE = "+id;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                int id_statie=cursor.getInt(0);
+                int id_linie=cursor.getInt(1);
+                String nume=cursor.getString(2);
+                String v=cursor.getString(3);
+                String[] vecini;
+                if (v!=null)
+                {
+                    vecini=v.split(",",0);
+                }
+                else
+                {
+                    vecini=null;
+                }
+
+                statie=new Statie(id_statie,id_linie,nume,vecini);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return statie;
+    }
+
     public List<Statie> selecteazaStatii()
     {
         List<Statie> returnList=new ArrayList<>();
         String query="SELECT * FROM "+STATII;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery(query,null);
+        if(cursor.moveToFirst())
+        {
+            do{
+                int id_statie=cursor.getInt(0);
+                int id_linie=cursor.getInt(1);
+                String nume=cursor.getString(2);
+                String v=cursor.getString(3);
+                String[] vecini;
+                if (v!=null)
+                {
+                    vecini=v.split(",",0);
+                }
+                else
+                {
+                    vecini=null;
+                }
+
+                Statie statie=new Statie(id_statie,id_linie,nume,vecini);
+
+                returnList.add(statie);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return returnList;
+    }
+
+    public ArrayList<Statie> selecteazaStatii(int id)
+    {
+        ArrayList<Statie> returnList=new ArrayList<>();
+        String query="SELECT * FROM "+STATII +" WHERE ID_LINIE = "+id;
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor=db.rawQuery(query,null);
         if(cursor.moveToFirst())

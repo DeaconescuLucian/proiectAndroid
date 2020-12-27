@@ -3,22 +3,22 @@ package com.example.proiectandroid;
 import java.util.ArrayList;
 
 public class Ruta implements Comparable{
-    private ArrayList<String> statii;
+    private ArrayList<Statie> statii;
     private int timp;
 
     public Ruta()
     {}
 
-    public Ruta(ArrayList<String> statii, int timp) {
+    public Ruta(ArrayList<Statie> statii, int timp) {
         this.statii = statii;
         this.timp = timp;
     }
 
-    public ArrayList<String> getStatii() {
+    public ArrayList<Statie> getStatii() {
         return statii;
     }
 
-    public void setStatii(ArrayList<String> statii) {
+    public void setStatii(ArrayList<Statie> statii) {
         this.statii = statii;
     }
 
