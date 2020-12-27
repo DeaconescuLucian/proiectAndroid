@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Home">
+        <menu>
+            <item
+                android:id="@+id/home"
+                android:icon="@drawable/home"
+                android:title="Acasa" />
+            <item
+                android:id="@+id/rute"
+                android:icon="@drawable/route"
+                android:title="Rute" />
+        </menu>
+    </item>
+    <item android:title="Magistrale">
+        <menu>
+            <item
+                android:id="@+id/m1"
+                android:icon="@drawable/subway_yellow"
+                android:title="DRISTOR-PANTELIMON"/>
+            <item
+                android:id="@+id/m2"
+                android:icon="@drawable/subway_blue"
+                android:title="BERCENI-PIPERA" />
+            <item
+                android:id="@+id/m3"
+                android:icon="@drawable/subway_red"
+                android:title="PRECZIIEI-ANGHEL SALIGNY" />
+            <item
+                android:id="@+id/m4"
+                android:icon="@drawable/subway_green"
+                android:title="GARA DE NORD-STRAULESTI" />
+            <item
+                android:id="@+id/m5"
+                android:icon="@drawable/subway_orange"
+                android:title="RAUL DOAMNEI-EROILOR" />
+        </menu>
+    </item>
+</menu>
