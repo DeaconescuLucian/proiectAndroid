@@ -110,6 +110,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment,new RuteFragment());
             fragmentTransaction.commit();
         }
+        if(item.getItemId()==R.id.home)
+        {
+            fragmentManager=getSupportFragmentManager();
+            fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new HomeFragment());
+            fragmentTransaction.commit();
+        }
         return true;
     }
 
@@ -154,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         Collections.sort(rute);
-        Log.v("msg",rute.toString());
         ArrayList<Integer> arr=new ArrayList<>();
         for (Statie statie: rute.get(0).getStatii()) {
             arr.add(statie.getId_statie());

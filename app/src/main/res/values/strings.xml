@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">proiectAndroid</string>
+    <string name="app_name">Metrorex App</string>
     <string name="id_statie">ID statie</string>
     <string name="id_magistrala">ID linie</string>
     <string name="baie">Baie(true/false)</string>
@@ -95,4 +95,5 @@
     </array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="acasa">BUN VENIT!</string>
 </resources>
