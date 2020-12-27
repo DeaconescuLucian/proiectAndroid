@@ -158,14 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     rute.add(ruta);
                 }
             }
-            if(nod.getNume().equals(start) && nod.getId_statie()==76)
-            {
-                Ruta ruta=Djikstra(graf,nod,end);
-                if(ruta!=null)
-                {
-                    rute.add(ruta);
-                }
-            }
 
         }
 
