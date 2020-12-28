@@ -7,6 +7,10 @@
                 android:icon="@drawable/home"
                 android:title="Acasa" />
             <item
+                android:id="@+id/profile"
+                android:icon="@drawable/ic_baseline_person_24"
+                android:title="@string/profil"/>
+            <item
                 android:id="@+id/rute"
                 android:icon="@drawable/route"
                 android:title="Rute" />

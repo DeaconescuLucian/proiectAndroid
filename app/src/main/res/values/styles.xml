@@ -7,8 +7,4 @@
         <item name="colorAccent">#69A7DA</item>
     </style>
 
-    <style name="Button.Pink" parent="ThemeOverlay.AppCompat">
-        <item name="colorAccent">@color/color6</item>
-    </style>
-
 </resources>

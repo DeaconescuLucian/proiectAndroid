@@ -57,8 +57,7 @@ public class RuteFragment extends Fragment {
         // Required empty public constructor
         mParam1=arr;
         pos1=position1;
-       pos2=position2;
-
+        pos2=position2;
     }
 
     /**
