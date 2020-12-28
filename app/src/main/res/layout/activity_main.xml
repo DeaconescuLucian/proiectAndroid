@@ -21,10 +21,10 @@
         android:id="@+id/navigationView"
         app:menu="@menu/drawer_menu"
         app:headerLayout="@layout/drawer_header"
-        android:background="@drawable/my_bg"
+        android:background="@color/color1"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:itemTextColor="#FFFFFF"
+        app:itemTextColor="@color/color7"
         />
 
 </androidx.drawerlayout.widget.DrawerLayout>

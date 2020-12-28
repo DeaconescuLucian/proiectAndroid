@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Home">
+    <item android:title="HOME">
         <menu>
             <item
                 android:id="@+id/home"
@@ -8,15 +8,16 @@
                 android:title="ACASA" />
             <item
                 android:id="@+id/profile"
-                android:icon="@drawable/ic_baseline_person_24"
+                android:icon="@drawable/profile"
                 android:title="@string/profil"/>
             <item
                 android:id="@+id/rute"
                 android:icon="@drawable/route"
-                android:title="RUTE" />
+                android:title="RUTE"
+                android:textColor="@color/color7"/>
         </menu>
     </item>
-    <item android:title="Magistrale">
+    <item android:title="MAGISTRALE">
         <menu>
             <item
                 android:id="@+id/m1"
