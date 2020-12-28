@@ -51,7 +51,7 @@
         android:id="@+id/registration_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color7"
+        android:background="@drawable/bg_purple_cyan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_register"
@@ -72,7 +72,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:gravity="left"/>
+            android:gravity="left"
+            android:textColor="#FFFFFF"/>
 
         <ImageView
             android:id="@+id/img_nume"
@@ -95,7 +96,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_nume" />
+            app:layout_constraintTop_toBottomOf="@+id/label_nume"
+            android:textColor="#FFFFFF"/>
 
 
         <TextView
@@ -110,7 +112,8 @@
             android:gravity="left"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tiet_nume" />
+            app:layout_constraintTop_toBottomOf="@id/tiet_nume"
+            android:textColor="#FFFFFF"/>
 
         <ImageView
             android:id="@+id/img_prenume"
@@ -122,7 +125,8 @@
             android:foregroundGravity="right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/label_prenume"
-            app:layout_constraintTop_toBottomOf="@id/tiet_nume" />
+            app:layout_constraintTop_toBottomOf="@id/tiet_nume"
+            android:textColor="#FFFFFF"/>
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -134,7 +138,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_prenume" />
+            app:layout_constraintTop_toBottomOf="@+id/label_prenume"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/label_email"
@@ -148,7 +153,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tiet_prenume" />
+            app:layout_constraintTop_toBottomOf="@id/tiet_prenume"
+            android:textColor="#FFFFFF"/>
 
         <ImageView
             android:layout_width="20dp"
@@ -171,7 +177,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_email" />
+            app:layout_constraintTop_toBottomOf="@+id/label_email"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/label_parola"
@@ -185,7 +192,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tiet_email" />
+            app:layout_constraintTop_toBottomOf="@id/tiet_email"
+            android:textColor="#FFFFFF"/>
 
         <ImageView
             android:layout_width="20dp"
@@ -207,6 +215,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_parola"
+            android:textColor="#FFFFFF"
             android:textSize="20dp"
             android:inputType="textPassword"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
