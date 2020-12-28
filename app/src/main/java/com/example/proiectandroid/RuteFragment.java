@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -95,6 +96,10 @@ public class RuteFragment extends Fragment {
         listview=view.findViewById(R.id.listview);
         spinner_start=view.findViewById(R.id.spinner_statie_start);
         spinner_destinatie=view.findViewById(R.id.spinner_statie_end);
+        ArrayAdapter adapter=ArrayAdapter.createFromResource(getActivity(),R.array.statii,R.layout.spinner_item);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown);
+        spinner_start.setAdapter(adapter);
+        spinner_destinatie.setAdapter(adapter);
         lista=new ArrayList<>();
         DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
         if(mParam1!=null)
