@@ -22,6 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
         android:layout_marginLeft="30dp"
+        android:textColor="@color/color7"
+        android:backgroundTint="@color/color7"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/m_ico"
