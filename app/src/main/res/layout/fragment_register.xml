@@ -97,7 +97,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_nume"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"/>
 
 
         <TextView
@@ -139,7 +140,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_prenume"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"/>
 
         <TextView
             android:id="@+id/label_email"
@@ -165,7 +167,8 @@
             android:foregroundGravity="right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/label_email"
-            app:layout_constraintTop_toBottomOf="@id/tiet_prenume" />
+            app:layout_constraintTop_toBottomOf="@id/tiet_prenume"
+            android:id="@+id/img_email"/>
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -178,7 +181,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_email"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"/>
 
         <TextView
             android:id="@+id/label_parola"
@@ -204,7 +208,8 @@
             android:layout_marginEnd="16dp"
             android:foregroundGravity="right"
             app:layout_constraintStart_toEndOf="@id/label_parola"
-            app:layout_constraintTop_toBottomOf="@id/tiet_email" />
+            app:layout_constraintTop_toBottomOf="@id/tiet_email"
+            android:id="@+id/img_pass"/>
 
 
         <com.google.android.material.textfield.TextInputEditText
@@ -216,6 +221,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_parola"
             android:textColor="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
             android:textSize="20dp"
             android:inputType="textPassword"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

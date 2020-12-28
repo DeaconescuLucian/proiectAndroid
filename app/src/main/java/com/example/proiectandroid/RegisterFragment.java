@@ -1,5 +1,6 @@
 package com.example.proiectandroid;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +44,7 @@ public class RegisterFragment extends Fragment {
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -59,6 +62,15 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+        View view=inflater.inflate(R.layout.fragment_register, container, false);
+        ImageView img_nume=(ImageView) view.findViewById(R.id.img_nume);
+        img_nume.setColorFilter(Color.parseColor("#FFFFFF"));
+        ImageView img_prenume=(ImageView) view.findViewById(R.id.img_prenume);
+        img_prenume.setColorFilter(Color.parseColor("#FFFFFF"));
+        ImageView img_email=(ImageView) view.findViewById(R.id.img_email);
+        img_email.setColorFilter(Color.parseColor("#FFFFFF"));
+        ImageView img_pass=(ImageView) view.findViewById(R.id.img_pass);
+        img_pass.setColorFilter(Color.parseColor("#FFFFFF"));
+        return view;
     }
 }
