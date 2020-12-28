@@ -5,10 +5,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +31,13 @@ public class RegisterFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private View view;
+    private TextInputEditText tiet_nume;
+    private TextInputEditText tiet_prenume;
+    private TextInputEditText tiet_email;
+    private TextInputEditText tiet_parola;
+    private  User user;
+    private ArrayList<User> users;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -62,7 +79,7 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_register, container, false);
+        view=inflater.inflate(R.layout.fragment_register, container, false);
         ImageView img_nume=(ImageView) view.findViewById(R.id.img_nume);
         img_nume.setColorFilter(Color.parseColor("#FFFFFF"));
         ImageView img_prenume=(ImageView) view.findViewById(R.id.img_prenume);
@@ -71,6 +88,52 @@ public class RegisterFragment extends Fragment {
         img_email.setColorFilter(Color.parseColor("#FFFFFF"));
         ImageView img_pass=(ImageView) view.findViewById(R.id.img_pass);
         img_pass.setColorFilter(Color.parseColor("#FFFFFF"));
+        initializeComponents();
+
+
         return view;
+    }
+
+    private void initializeComponents()
+    {
+        tiet_nume=view.findViewById(R.id.tiet_nume);
+        tiet_prenume=view.findViewById(R.id.tiet_prenume);
+        tiet_email=view.findViewById(R.id.tiet_email);
+        tiet_parola=view.findViewById(R.id.tiet_parola);
+    }
+
+    private void getUser()
+    {
+        String nume=tiet_nume.getText().toString();
+        String prenume=tiet_prenume.getText().toString();
+        String email=tiet_email.getText().toString();
+        String parola=tiet_parola.getText().toString();
+        user=new User(nume, prenume, email, parola);
+    }
+
+    private void readUsersFromDatabase()
+    {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("users");
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                //String value = dataSnapshot.getValue(String.class);
+                //String value = dataSnapshot.child("newNode").getValue().toString();
+                //String value = dataSnapshot.getValue().toString();
+                users = (ArrayList<User>)(dataSnapshot.getValue());
+                //Log.d("firebase_read", "Value is: " + users);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("firebase_read", "Failed to read value.", error.toException());
+            }
+        });
     }
 }
