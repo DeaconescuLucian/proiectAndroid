@@ -5,7 +5,7 @@
             <item
                 android:id="@+id/home"
                 android:icon="@drawable/home"
-                android:title="Acasa" />
+                android:title="ACASA" />
             <item
                 android:id="@+id/profile"
                 android:icon="@drawable/ic_baseline_person_24"
@@ -13,7 +13,7 @@
             <item
                 android:id="@+id/rute"
                 android:icon="@drawable/route"
-                android:title="Rute" />
+                android:title="RUTE" />
         </menu>
     </item>
     <item android:title="Magistrale">
