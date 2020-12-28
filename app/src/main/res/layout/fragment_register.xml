@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RegisterFragment"
+    android:background="@color/color1">
+
+    <!-- TODO: Update blank fragment layout -->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="@string/hello_blank_fragment" />-->
+
+    <!--    <androidx.constraintlayout.widget.Group-->
+    <!--        android:id="@+id/group"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:constraint_referenced_ids="tiet_nume, tiet_prenume"-->
+    <!--        android:background="@color/color6"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_register"-->
+    <!--        android:layout_marginStart="64dp"-->
+    <!--        android:layout_marginEnd="64dp"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/tiet_prenume"-->
+    <!--        />-->
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register here!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:textSize="32dp"
+        android:textColor="@color/color7"
+        />
+<!--    <ImageView-->
+<!--    ????????-->
+<!--        android:layout_widt="300px"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:src="@drawable/register"-->
+<!--        />-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registration_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color7"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_register">
+
+        <!--        <androidx.constraintlayout.widget.Group-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:constraint_referenced_ids="label_nume,img_nume"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginEnd="16dp"-->
+        <!--            />-->
+
+        <TextView
+            android:id="@+id/label_nume"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/nume"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="left"/>
+
+        <ImageView
+            android:id="@+id/img_nume"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/ic_baseline_person_24"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_nume"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_nume"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_nume" />
+
+        <!--        <androidx.constraintlayout.widget.Group-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:constraint_referenced_ids="label_prenume,img_prenume"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginEnd="16dp"-->
+        <!--            />-->
+
+        <TextView
+            android:id="@+id/label_prenume"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/prenume"
+            android:textSize="20dp"
+            android:gravity="left"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiet_nume" />
+
+        <ImageView
+            android:id="@+id/img_prenume"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_baseline_person_24"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_prenume"
+            app:layout_constraintTop_toBottomOf="@id/tiet_nume" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_prenume"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_prenume" />
+
+        <TextView
+            android:id="@+id/label_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="left"
+            android:text="@string/email"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiet_prenume" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_baseline_email_24"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_email"
+            app:layout_constraintTop_toBottomOf="@id/tiet_prenume" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_email" />
+
+        <TextView
+            android:id="@+id/label_parola"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="left"
+            android:text="@string/parola"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tiet_email" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/ic_baseline_vpn_key_24"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_parola"
+            app:layout_constraintTop_toBottomOf="@id/tiet_email" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_parola"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label_parola"
+            android:textSize="20dp"
+            android:inputType="textPassword"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/registration_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Register now!"
+        android:textSize="20dp"
+        android:backgroundTint="@color/color7"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
