@@ -100,4 +100,7 @@
     <string name="prenume">Prenume</string>
     <string name="email">Email</string>
     <string name="parola">Parola</string>
+    <string name="register_now">Register now!</string>
+    <string name="do_you_have_account_login_here">Do you have account? Login here</string>
+    <string name="welcome">WELCOME</string>
 </resources>

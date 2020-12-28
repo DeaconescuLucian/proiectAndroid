@@ -1,24 +1,36 @@
 package com.example.proiectandroid;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
+{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private TextView tv_login;
+    private TextView tv_register;
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
+    private onRegisterTextPressed listener;
+    private onLoginTextPressed listener2;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -59,6 +71,48 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View view= inflater.inflate(R.layout.fragment_home, container, false);
+        tv_login=view.findViewById(R.id.login_home);
+        tv_register=view.findViewById(R.id.register_home);
+        tv_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onTextPressed();
+            }
+        });
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener2.onLoginPressed();
+            }
+        });
+        return view;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof onRegisterTextPressed)
+            listener=(onRegisterTextPressed) context;
+        else
+            {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+        if(context instanceof onLoginTextPressed)
+            listener2=(onLoginTextPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+    }
+
+    public interface onRegisterTextPressed
+    {
+        public void onTextPressed();
+    }
+
+    public interface onLoginTextPressed
+    {
+        public void onLoginPressed();
     }
 }
