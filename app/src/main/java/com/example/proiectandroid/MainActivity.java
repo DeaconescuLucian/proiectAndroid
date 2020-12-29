@@ -460,7 +460,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         Log.v("log", "log");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("myUsers/Oana");
+        DatabaseReference reference = database.getReference("myUsers/Oanavc sd90");
 
         // Read from the database
         reference.addValueEventListener(new ValueEventListener()
