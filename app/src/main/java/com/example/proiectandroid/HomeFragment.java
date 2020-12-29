@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     private FragmentTransaction fragmentTransaction;
     private onRegisterTextPressed listener;
     private onLoginTextPressed listener2;
+    private Layout l1;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -72,20 +74,20 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
-        tv_login=view.findViewById(R.id.login_home);
-        tv_register=view.findViewById(R.id.register_home);
-        tv_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onTextPressed();
-            }
-        });
-        tv_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener2.onLoginPressed();
-            }
-        });
+//        tv_login=view.findViewById(R.id.login_home);
+//        tv_register=view.findViewById(R.id.register_home);
+//        tv_register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener.onTextPressed();
+//            }
+//        });
+//        tv_login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener2.onLoginPressed();
+//            }
+//        });
         return view;
     }
 

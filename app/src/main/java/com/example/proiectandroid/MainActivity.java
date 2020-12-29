@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Date date = new Date(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, 10);
+        cal.add(Calendar.HOUR_OF_DAY, 0);
         String ora_curenta=formatter.format(cal.getTime());
         Log.v("mora",ora_curenta);
         DataBaseHelper dataBaseHelper=new DataBaseHelper(this);

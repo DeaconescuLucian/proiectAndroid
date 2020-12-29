@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".RegisterFragment"
-    android:background="@color/color1"
+    android:background="@drawable/bg_purple_cyan"
     android:paddingLeft="50dp"
     android:paddingRight="50dp">
 
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         android:textSize="32dp"
-        android:textColor="@color/color7"
+        android:textColor="#FFFFFF"
         />
 <!--    <ImageView-->
 <!--    ????????-->
@@ -32,12 +32,14 @@
         android:id="@+id/registration_group"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_purple_cyan"
+        android:background="@drawable/transparent_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_register"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="145dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
         >
 
 
@@ -71,10 +73,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_nume"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_nume"
@@ -114,7 +116,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_prenume"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="20dp"
@@ -155,7 +157,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_email"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="20dp"
@@ -196,8 +198,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_parola"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/label_parola"

@@ -5,22 +5,21 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentMagistrala"
-    android:paddingRight="30dp"
-    android:paddingLeft="30dp">
+    android:background="@color/color7">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/tv"
         android:text="Text"
-        android:textColor="@color/color1"
+        android:textColor="#FFFFFF"
         android:gravity="center"
         android:textSize="20sp"
-        android:layout_marginTop="30dp"
+        android:background="@drawable/purple_bg"
         />
     <ListView
         android:layout_width="match_parent"
@@ -30,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv"
         android:id="@+id/lv_items"
         android:layout_marginTop="60dp"
+        android:background="@drawable/bg_purple_cyan"
         android:gravity="center"
         />
 
