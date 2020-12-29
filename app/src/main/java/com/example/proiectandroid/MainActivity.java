@@ -219,8 +219,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private Ruta Djikstra(ArrayList<NodGraf> graf,NodGraf start,String nume_nod_end)
     {
-
-
         ArrayList<NodGraf> noduri_nevizitate = new ArrayList<>();
         ArrayList<NodGraf> noduri_vizitate = new ArrayList<>();
         NodGraf lastNode=null;
@@ -424,21 +422,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void writeToDataBase()
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("myUsers");
+        DatabaseReference myRef = database.getReference("Users");
 
         myRef.child(user.getEmail()).setValue(user);
     }
 
     @Override
-    public void clickRegisterButton(ArrayList<User> USERS)
+    public void clickRegisterButton()
     {
         getUserFromRegistration();
         user=new User(nume, prenume, email, parola);
-//        Log.v("user", user.toString());
-        users=USERS;
-//        Log.d("lista", users.toString());
-        users.add(user);
-//        Log.d("lista_noua", users.toString());
         writeToDataBase();
 
         fragmentManager=getSupportFragmentManager();
@@ -490,16 +483,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getCredentialsFromLogin();
         Log.v("user_login","The values:"+email_login+ " "+parola_login);
         readUserFromDataBase();
-        //Log.v("user_database", userFromDatabase.toString());
-
-//        fragmentManager=getSupportFragmentManager();
-//        fragmentTransaction=fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.container_fragment,new LoginFragment(email_login));
-//        fragmentTransaction.commit();
-
-//        userFromDatabase=userLogin;
-
-
-
     }
 }

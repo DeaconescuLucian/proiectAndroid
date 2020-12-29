@@ -116,7 +116,7 @@ public class RegisterFragment extends Fragment {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.clickRegisterButton(users);
+                listener.clickRegisterButton();
             }
         });
 
@@ -135,6 +135,6 @@ public class RegisterFragment extends Fragment {
 
     public interface Registration
     {
-        public abstract void clickRegisterButton(ArrayList<User> users);
+        public abstract void clickRegisterButton();
     }
 }

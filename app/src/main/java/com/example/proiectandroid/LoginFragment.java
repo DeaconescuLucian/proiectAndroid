@@ -94,48 +94,6 @@ public class LoginFragment extends Fragment {
         tiet_email_login=view.findViewById(R.id.tiet_email_login);
         btn_login= view.findViewById(R.id.btn_login);
 
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference reference = database.getReference("users");
-//
-//        Query userByEmail=reference.child("email").equalTo(email_login);
-//        // Read from the database
-//       userByEmail.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//
-//                userFromDatabase=dataSnapshot.getValue(User.class);
-//                Log.d("firebase_readLOGIN", "Value is: " + userFromDatabase);
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                // Failed to read value
-//                Log.w("firebase_read", "Failed to read value.", error.toException());
-//            }
-//        });
-
-//        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference reference = database.getReference("myUsers/"+tiet_email_login.getText().toString());
-//
-//        // Read from the database
-//        reference.addValueEventListener(new ValueEventListener()
-//        {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//               userFromDatabase=snapshot.getValue(User.class);
-//
-//
-//                Log.v("firebase_readLOGIN", "Value is: " + userFromDatabase);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//                // Failed to read value
-//                Log.w("firebase_read", "Failed to read value.", error.toException());
-//            }
-//        });
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
