@@ -460,7 +460,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         Log.v("log", "log");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("myUsers/Oanavc sd90");
+        DatabaseReference reference = database.getReference("myUsers/"+email_login);
 
         // Read from the database
         reference.addValueEventListener(new ValueEventListener()
@@ -468,15 +468,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userFromDatabase=snapshot.getValue(User.class);
-
-
-                Log.v("firebase_readLOGIN", "Value is: " + userFromDatabase);
+                if(parola_login.equals(userFromDatabase.getParola()))
+                {
+                    fragmentManager=getSupportFragmentManager();
+                    fragmentTransaction=fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment());
+                    fragmentTransaction.commit();
+                }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Failed to read value
-                Log.w("firebase_read", "Failed to read value.", error.toException());
             }
         });
     }
@@ -485,9 +488,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void clickLoginButton()
     {
         getCredentialsFromLogin();
-        Log.d("user_login","The values:"+email_login+ " "+parola_login);
+        Log.v("user_login","The values:"+email_login+ " "+parola_login);
         readUserFromDataBase();
-        Log.v("user_database", userFromDatabase.toString());
+        //Log.v("user_database", userFromDatabase.toString());
 
 //        fragmentManager=getSupportFragmentManager();
 //        fragmentTransaction=fragmentManager.beginTransaction();
@@ -496,13 +499,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 //        userFromDatabase=userLogin;
 
-//        if(parola_login==userFromDatabase.getParola())
-//        {
-//            fragmentManager=getSupportFragmentManager();
-//            fragmentTransaction=fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment());
-//            fragmentTransaction.commit();
-//        }
+
 
     }
 }
