@@ -14,6 +14,11 @@ public class User
         this.parola = parola;
     }
 
+    public User()
+    {
+
+    }
+
     @Override
     public String toString() {
         return "User{" +

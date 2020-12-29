@@ -1,14 +1,18 @@
 package com.example.proiectandroid;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -36,8 +40,14 @@ public class RegisterFragment extends Fragment {
     private TextInputEditText tiet_prenume;
     private TextInputEditText tiet_email;
     private TextInputEditText tiet_parola;
+    private Button btn_register;
     private  User user;
     private ArrayList<User> users;
+    private Registration listener;
+    private String nume;
+    private String prenume;
+    private String email;
+    private String parola;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -75,6 +85,23 @@ public class RegisterFragment extends Fragment {
         }
     }
 
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        initializeComponents();
+//        getUser();
+//
+//        user=new User(nume, prenume, email, parola);
+//        Log.v("user", user.toString());
+//
+//        btn_register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener.clickRegisterButton(nume, prenume, email, parola);
+//            }
+//        });
+//    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -88,8 +115,15 @@ public class RegisterFragment extends Fragment {
         img_email.setColorFilter(Color.parseColor("#FFFFFF"));
         ImageView img_pass=(ImageView) view.findViewById(R.id.img_pass);
         img_pass.setColorFilter(Color.parseColor("#FFFFFF"));
-        initializeComponents();
 
+        btn_register=view.findViewById(R.id.btn_register);
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.clickRegisterButton();
+            }
+        });
 
         return view;
     }
@@ -100,40 +134,30 @@ public class RegisterFragment extends Fragment {
         tiet_prenume=view.findViewById(R.id.tiet_prenume);
         tiet_email=view.findViewById(R.id.tiet_email);
         tiet_parola=view.findViewById(R.id.tiet_parola);
+        btn_register=view.findViewById(R.id.btn_register);
     }
 
     private void getUser()
     {
-        String nume=tiet_nume.getText().toString();
-        String prenume=tiet_prenume.getText().toString();
-        String email=tiet_email.getText().toString();
-        String parola=tiet_parola.getText().toString();
-        user=new User(nume, prenume, email, parola);
+        nume=tiet_nume.getText().toString();
+        prenume=tiet_prenume.getText().toString();
+        email=tiet_email.getText().toString();
+        parola=tiet_parola.getText().toString();
     }
 
-    private void readUsersFromDatabase()
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof RegisterFragment.Registration)
+            listener=(RegisterFragment.Registration) context;
+        else {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+    }
+
+    public interface Registration
     {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users");
-
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                //String value = dataSnapshot.getValue(String.class);
-                //String value = dataSnapshot.child("newNode").getValue().toString();
-                //String value = dataSnapshot.getValue().toString();
-                users = (ArrayList<User>)(dataSnapshot.getValue());
-                //Log.d("firebase_read", "Value is: " + users);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("firebase_read", "Failed to read value.", error.toException());
-            }
-        });
+//        public abstract void clickRegisterButton(String nume, String prenume, String email, String parola);
+        public abstract void clickRegisterButton();
     }
 }
