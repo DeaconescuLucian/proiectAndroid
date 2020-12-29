@@ -123,13 +123,14 @@
             app:layout_constraintTop_toBottomOf="@+id/label_parola_login"
             android:textColor="#FFFFFF"
             android:backgroundTint="#FFFFFF"
+            android:inputType="textPassword"
             />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/login_group"

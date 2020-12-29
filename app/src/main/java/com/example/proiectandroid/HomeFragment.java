@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -26,13 +27,16 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private TextView tv_login;
-    private TextView tv_register;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-    private onRegisterTextPressed listener;
-    private onLoginTextPressed listener2;
-    private Layout l1;
+    private onRegisterLayoutPressed listener;
+    private onLoginLayoutPressed listener2;
+    private onMagistraleLayoutPressed listener3;
+    private onRuteLayoutPressed listener4;
+    private ConstraintLayout l1;
+    private ConstraintLayout l2;
+    private ConstraintLayout l3;
+    private ConstraintLayout l4;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -74,47 +78,84 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
-//        tv_login=view.findViewById(R.id.login_home);
-//        tv_register=view.findViewById(R.id.register_home);
-//        tv_register.setOnClickListener(new View.OnClickListener() {
+        l1=view.findViewById(R.id.l1);
+        l2=view.findViewById(R.id.l2);
+        //l3=view.findViewById(R.id.l3);
+        l4=view.findViewById(R.id.l4);
+        l1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onRegisterPressed();
+            }
+        });
+        l2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener2.onLoginPressed();
+            }
+        });
+//        l3.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                listener.onTextPressed();
+//                listener3.onMagistralePressed();
 //            }
 //        });
-//        tv_login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                listener2.onLoginPressed();
-//            }
-//        });
+        l4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener4.onRutePressed();
+            }
+        });
+
         return view;
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if(context instanceof onRegisterTextPressed)
-            listener=(onRegisterTextPressed) context;
+        if(context instanceof onRegisterLayoutPressed)
+            listener=(onRegisterLayoutPressed) context;
         else
             {
             throw new ClassCastException(context.toString() + "must implement listener");
         }
-        if(context instanceof onLoginTextPressed)
-            listener2=(onLoginTextPressed) context;
+        if(context instanceof onLoginLayoutPressed)
+            listener2=(onLoginLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+        if(context instanceof onMagistraleLayoutPressed)
+            listener3=(onMagistraleLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+        if(context instanceof onRuteLayoutPressed)
+            listener4=(onRuteLayoutPressed) context;
         else
         {
             throw new ClassCastException(context.toString() + "must implement listener");
         }
     }
 
-    public interface onRegisterTextPressed
+    public interface onRegisterLayoutPressed
     {
-        public void onTextPressed();
+        public void onRegisterPressed();
     }
 
-    public interface onLoginTextPressed
+    public interface onLoginLayoutPressed
     {
         public void onLoginPressed();
+    }
+
+    public interface onMagistraleLayoutPressed
+    {
+        public void onMagistralePressed();
+    }
+
+    public interface onRuteLayoutPressed
+    {
+        public void onRutePressed();
     }
 }

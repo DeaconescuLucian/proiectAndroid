@@ -107,6 +107,55 @@
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+<!--    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:tools="http://schemas.android.com/tools"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--        tools:context=".HomeFragment"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/l2"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:background="@drawable/bg_grad_horizontal"-->
+<!--        android:paddingBottom="20dp"-->
+<!--        android:paddingTop="20dp"-->
+<!--        android:id="@+id/l3"-->
+<!--        android:layout_marginTop="30dp">-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:id="@+id/find_home"-->
+<!--            android:text="Magistrale"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:gravity="left"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:textSize="24sp"/>-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/find_home"-->
+<!--            android:id="@+id/find_text"-->
+<!--            android:text="Vizualizeaza magistrale."-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:gravity="left"-->
+<!--            android:textSize="15sp"-->
+<!--            android:layout_marginLeft="16dp"/>-->
+<!--        <ImageView-->
+<!--            android:id="@+id/img_transfer"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:background="@drawable/transfer"-->
+<!--            android:foregroundGravity="right"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -117,55 +166,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/bg_grad_horizontal"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        android:id="@+id/l3"
-        android:layout_marginTop="30dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/find_home"
-            android:text="Magistrale"
-            android:textColor="#FFFFFF"
-            android:gravity="left"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:textSize="24sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/find_home"
-            android:id="@+id/find_text"
-            android:text="Vizualizeaza magistrale."
-            android:textColor="#FFFFFF"
-            android:gravity="left"
-            android:textSize="15sp"
-            android:layout_marginLeft="16dp"/>
-        <ImageView
-            android:id="@+id/img_transfer"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/transfer"
-            android:foregroundGravity="right"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".HomeFragment"
-        app:layout_constraintTop_toBottomOf="@+id/l3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/bg_grad_horizontal1"
         android:paddingBottom="20dp"
         android:paddingTop="20dp"
         android:id="@+id/l4"

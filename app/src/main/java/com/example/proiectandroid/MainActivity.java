@@ -1,6 +1,7 @@
 package com.example.proiectandroid;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,10 +25,12 @@ import android.widget.Spinner;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -38,7 +41,7 @@ import java.util.Date;
 import java.util.Calendar;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,RuteFragment.onFragmentButtonSelected, HomeFragment.onRegisterTextPressed, HomeFragment.onLoginTextPressed, RegisterFragment.Registration {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,RuteFragment.onFragmentButtonSelected, HomeFragment.onRegisterLayoutPressed, HomeFragment.onLoginLayoutPressed, HomeFragment.onMagistraleLayoutPressed, HomeFragment.onRuteLayoutPressed,RegisterFragment.Registration, LoginFragment.Login {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -54,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             GARADENORD_STRAULESTI,PIPERA_BERCENI,RAULDOAMNEI_EROILOR2,REPUBLICA_DRISTOR2,REPUBLICA_PANTELIMON,VALEAIALOMITEI_EROILOR2;
     ArrayList<Ruta> rute;
     MagistralaAdapter magistralaAdapter;
-    private Fragment currentFragment;
+
     private ArrayList<User> users;
     private User user;
     private TextInputEditText tiet_nume;
@@ -62,11 +65,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextInputEditText tiet_email;
     private TextInputEditText tiet_parola;
     private Button btn_register;
-    private RegisterFragment.Registration listener;
     private String nume;
     private String prenume;
     private String email;
     private String parola;
+
+    private TextInputEditText tiet_email_login;
+    private TextInputEditText tiet_parola_login;
+    private String email_login;
+    private String parola_login;
+
+    User userFromDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment,new RegisterFragment());
+            fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment());
             fragmentTransaction.commit();
         }
         return true;
@@ -362,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onTextPressed()
+    public void onRegisterPressed()
     {
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
@@ -376,6 +386,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onMagistralePressed()
+    {
+        fragmentManager=getSupportFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());//?????????????????????
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onRutePressed()
+    {
+        fragmentManager=getSupportFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment, new RuteFragment());
         fragmentTransaction.commit();
     }
 
@@ -393,66 +421,88 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         parola=tiet_parola.getText().toString();
     }
 
-    private void readUsersFromDatabase()
-    {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("users");
-        DatabaseReference myRef = database.getReference();
-
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                //String value = dataSnapshot.getValue(String.class);
-                //String value = dataSnapshot.child("newNode").getValue().toString();
-                //String value = dataSnapshot.getValue().toString();
-//                for(DataSnapshot snapshot : dataSnapshot.getChildren())
-//                {
-//                    String nume=snapshot.getValue(String.class).toString();
-//                    String prenume=snapshot.getValue(String.class).toString();
-//                    String email=snapshot.getValue(String.class).toString();
-//                    String parola=snapshot.getValue(String.class).toString();
-//                    User user1=new User(nume, prenume, email, parola);
-                    User data=dataSnapshot.getValue(User.class);
-                    users.add(data);
-//                }
-                Log.d("firebase_read", "Value is: " + users);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("firebase_read", "Failed to read value.", error.toException());
-            }
-        });
-    }
-
     private void writeToDataBase()
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users");
+        DatabaseReference myRef = database.getReference("myUsers");
 
-        myRef.setValue(users);
+        myRef.child(user.getEmail()).setValue(user);
     }
 
     @Override
-    public void clickRegisterButton()
+    public void clickRegisterButton(ArrayList<User> USERS)
     {
         getUserFromRegistration();
         user=new User(nume, prenume, email, parola);
-        Log.v("user", user.toString());
-        users=new ArrayList<>();
-        readUsersFromDatabase();
-        Log.v("citit", users.toString());
+//        Log.v("user", user.toString());
+        users=USERS;
+//        Log.d("lista", users.toString());
         users.add(user);
-        Log.v("lista_noua", users.toString());
+//        Log.d("lista_noua", users.toString());
         writeToDataBase();
 
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());
         fragmentTransaction.commit();
+    }
+
+    private void getCredentialsFromLogin()
+    {
+        tiet_email_login=findViewById(R.id.tiet_email_login);
+        tiet_parola_login=findViewById(R.id.tiet_parola_login);
+
+        email_login=tiet_email_login.getText().toString();
+        parola_login=tiet_parola_login.getText().toString();
+    }
+
+    private void readUserFromDataBase()
+    {
+        Log.v("log", "log");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("myUsers/Oana");
+
+        // Read from the database
+        reference.addValueEventListener(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userFromDatabase=snapshot.getValue(User.class);
+
+
+                Log.v("firebase_readLOGIN", "Value is: " + userFromDatabase);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Failed to read value
+                Log.w("firebase_read", "Failed to read value.", error.toException());
+            }
+        });
+    }
+
+    @Override
+    public void clickLoginButton()
+    {
+        getCredentialsFromLogin();
+        Log.d("user_login","The values:"+email_login+ " "+parola_login);
+        readUserFromDataBase();
+        Log.v("user_database", userFromDatabase.toString());
+
+//        fragmentManager=getSupportFragmentManager();
+//        fragmentTransaction=fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.container_fragment,new LoginFragment(email_login));
+//        fragmentTransaction.commit();
+
+//        userFromDatabase=userLogin;
+
+//        if(parola_login==userFromDatabase.getParola())
+//        {
+//            fragmentManager=getSupportFragmentManager();
+//            fragmentTransaction=fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment());
+//            fragmentTransaction.commit();
+//        }
+
     }
 }
