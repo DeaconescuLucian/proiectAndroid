@@ -2,10 +2,12 @@ package com.example.proiectandroid;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "LEGATURI")
 public class Legaturi
 {
+    @PrimaryKey
     @ColumnInfo(name = "ID_VECIN1")
     public int id_vecin1;
     @ColumnInfo(name = "ID_VECIN2")

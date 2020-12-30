@@ -93,6 +93,7 @@ public class ProfileFragment extends Fragment {
 //        tv=view.findViewById(R.id.tv_statii);
 //        tv.setText(database.statieDAO().getStatii().toString());
 
+        database= Room.databaseBuilder(getContext(),AppDb.class, "LINII").allowMainThreadQueries().build();
         return view;
     }
 }

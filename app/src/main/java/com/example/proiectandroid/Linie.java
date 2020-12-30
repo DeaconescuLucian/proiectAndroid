@@ -8,6 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "LINII")
 public class Linie
 {
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "ID_LINIE")
     public int id;
     @ColumnInfo(name = "START")

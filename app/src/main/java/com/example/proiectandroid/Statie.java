@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "STATII")
 public class Statie
 {
+    @PrimaryKey
     @ColumnInfo(name = "ID_STATIE")
     public int id;
     @ColumnInfo(name = "ID_LINIE")

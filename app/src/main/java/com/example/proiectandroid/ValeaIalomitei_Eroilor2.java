@@ -2,10 +2,12 @@ package com.example.proiectandroid;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "VALEAIALOMITEI_EROILOR2")
 public class ValeaIalomitei_Eroilor2
 {
+    @PrimaryKey
     @ColumnInfo(name = "INTERVAL_ORAR")
     public String interval_orar;
     @ColumnInfo(name = "TIMPUL")

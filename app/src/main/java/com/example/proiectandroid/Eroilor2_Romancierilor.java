@@ -1,11 +1,15 @@
 package com.example.proiectandroid;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 @Entity(tableName = "EROILOR2_ROMANCIERILOR")
 public class Eroilor2_Romancierilor
 {
+    @PrimaryKey
+    @NonNull
     @ColumnInfo(name = "INTERVAL_ORAR")
     public String interval_orar;
     @ColumnInfo(name = "TIMPUL")
