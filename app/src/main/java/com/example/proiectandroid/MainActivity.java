@@ -33,6 +33,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.text.SimpleDateFormat;
@@ -579,7 +580,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("myUsers");
 
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
@@ -589,11 +590,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 else
                 {
-                    ArrayList<User> useri=(ArrayList<User>)(snapshot.getValue());
-                    int ok=0;
-                    for(User user : useri)
+                    HashMap<String,User> useri=new HashMap<>();
+                    for(DataSnapshot s : snapshot.getChildren())
                     {
-                        if(user.getEmail().equals(email))
+                        User user=s.getValue(User.class);
+                        useri.put(s.getKey(),user);
+                    }
+                    int ok=0;
+                    for(User usr : useri.values())
+                    {
+                        if(usr.getEmail().equals(email))
                         {
                             ok=1;
                         }
