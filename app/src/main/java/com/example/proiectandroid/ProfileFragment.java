@@ -42,6 +42,7 @@ public class ProfileFragment extends Fragment {
     private User userFromDatabase;
     private TextView tv_nume;
     private TextView tv_email;
+    private TextView tv_username;
 
 
     public ProfileFragment() {
@@ -87,10 +88,11 @@ public class ProfileFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
         tv_nume=view.findViewById(R.id.tv_nume);
         tv_email=view.findViewById(R.id.tv_email);
+        tv_username=view.findViewById(R.id.tv_username);
 
         tv_nume.setText(userFromDatabase.getNume()+" "+userFromDatabase.getUsername());
         tv_email.setText(userFromDatabase.getEmail());
-
+        tv_username.setText(userFromDatabase.getUsername());
 
 
 

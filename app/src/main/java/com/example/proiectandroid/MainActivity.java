@@ -551,7 +551,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else
         {
-            if (Patterns.EMAIL_ADDRESS.matcher(tiet_email.getText().toString()).matches())
+            if (!Patterns.EMAIL_ADDRESS.matcher(tiet_email.getText().toString()).matches())
                 Toast.makeText(getApplicationContext(), getString(R.string.introducetiEmailCorect), Toast.LENGTH_SHORT).show();
         }
         if(tiet_parola.getText().toString().isEmpty())
