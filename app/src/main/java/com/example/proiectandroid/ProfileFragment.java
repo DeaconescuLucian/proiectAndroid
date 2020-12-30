@@ -93,7 +93,59 @@ public class ProfileFragment extends Fragment {
 //        tv=view.findViewById(R.id.tv_statii);
 //        tv.setText(database.statieDAO().getStatii().toString());
 
-        database= Room.databaseBuilder(getContext(),AppDb.class, "LINII").allowMainThreadQueries().build();
+
+//        database= Room.databaseBuilder(getContext(),AppDb.class, "LINII").allowMainThreadQueries().build();
+
+//        tv=view.findViewById(R.id.tv_statii);
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "STATII")
+//               .allowMainThreadQueries().build();
+//
+//        tv.setText(database.statieDAO().getStatii().toString());
+
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "LINII")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.linieDAO().getLinii().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "ANGHELSALIGNY_PRECIZIEI")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.anghelSaligny_precizieiDAO().getTimpiAnghelSaligny_Preciziei().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "DRISTOR1_EROILOR")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.dristor1_eroilorDAO().getTimpiDristor1_Eroilor().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "EROILOR2_ROMANCIERILOR")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.eroilor2_romancierilorDAO().getTimpiEroilor2_Romancierilor().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "GARADENORD_STRAULESTI")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.garaDeNord_straulestiDAO().getTimpiGaraDeNord_Straulesti().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "LEGATURI")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.legaturiDAO().getLegaturi().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "PIPERA_BERCENI")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.pipera_berceniDAO().getTimpiPipera_Berceni().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "RAULDOAMNEI_EROILOR2")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.raulDoamnei_eroilor2DAO().getTimpiRaulDoamnei_Eroilor2().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "REPUBLICA_DRISTOR2")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.republica_dristor2DAO().getTimpiRepublica_Dristor2().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "REPUBLICA_PANTELIMON")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.republica_pantelimonDAO().getTimpiRepublica_Pantelimon().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "STATII_ABONAMENTE_PENTRU_STUDENTI")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.statiiAbonamentePentruStudentiDAO().getStatiiAbonamentePentruStudenti().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "STATII_CU_BAI")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.statii_cu_baiDAO().getStatii_cu_bai().toString());
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "VALEAIALOMITEI_EROILOR2")
+//                .allowMainThreadQueries().build();
+//        tv.setText(database.valeaIalomitei_eroilor2DAO().getTimpiValeaIalomitei_Eroilor2().toString());
+
+
+
+
+
         return view;
     }
 }
