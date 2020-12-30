@@ -114,4 +114,7 @@
     <string name="existaEmailul">Exista deja un cont cu acest email. Mergi la login!</string>
     <string name="Username">Nume utilizator</string>
     <string name="introducetiUsername">Introduceti nume utilizator!</string>
+    <string name="utilizatorInexistent">Nume de utilizator inexistent.</string>
+    <string name="parolaGresita">Parola incorecta.</string>
+    <string name="existaUser">Utilizator existent.</string>
 </resources>

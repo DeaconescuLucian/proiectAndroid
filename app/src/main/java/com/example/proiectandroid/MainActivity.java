@@ -580,13 +580,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference=database.getReference("myUsers");
 
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {
                 if(snapshot.hasChild(username))
                 {
-                    Toast.makeText(getApplicationContext(), getString(R.string.existaEmailul), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.existaUser), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -604,6 +604,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             ok=1;
                         }
                     }
+                    if(ok==1)
+                        Toast.makeText(getApplicationContext(), getString(R.string.existaEmailul), Toast.LENGTH_SHORT).show();
                     if(ok==0)
                     {
                         writeToDataBase();
@@ -612,10 +614,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());
                         fragmentTransaction.commit();
                     }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(), getString(R.string.existaEmailul), Toast.LENGTH_SHORT).show();
-                    }
+
                 }
             }
 
@@ -653,16 +652,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 userFromDatabase=snapshot.getValue(User.class);
-                if(parola_login.equals(userFromDatabase.getParola()))
-                {
-                    NavigationView navigationView=findViewById(R.id.navigationView);
-                    Menu menu=navigationView.getMenu();
-                    menu.findItem(R.id.deconectare).setVisible(true);
-                    fragmentManager=getSupportFragmentManager();
-                    fragmentTransaction=fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment(userFromDatabase));
-                    fragmentTransaction.commit();
-                }
+                if(userFromDatabase!=null)
+                    if(parola_login.equals(userFromDatabase.getParola()))
+                    {
+                        NavigationView navigationView=findViewById(R.id.navigationView);
+                        Menu menu=navigationView.getMenu();
+                        menu.findItem(R.id.deconectare).setVisible(true);
+                        fragmentManager=getSupportFragmentManager();
+                        fragmentTransaction=fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment(userFromDatabase));
+                        fragmentTransaction.commit();
+                    }
+                    else
+                        Toast.makeText(getApplicationContext(), getString(R.string.parolaGresita),Toast.LENGTH_SHORT).show();
+                else
+                    {
+                        Toast.makeText(getApplicationContext(), getString(R.string.utilizatorInexistent),Toast.LENGTH_SHORT).show();
+                    }
             }
 
             @Override
