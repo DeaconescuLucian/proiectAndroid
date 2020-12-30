@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textSize="20dp"
         android:gravity="center"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/color8"/>
 
     <TextView
         android:id="@+id/label_email_profile"
