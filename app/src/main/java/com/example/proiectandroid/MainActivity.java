@@ -1,36 +1,26 @@
 package com.example.proiectandroid;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Spinner;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -49,9 +39,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
-    List<Statie> lista;
+    List<Statie1> lista;
     ArrayList<NodGraf> graf;
-    ArrayList<Legaturi> lista1;
+    ArrayList<Legaturi1> lista1;
     ListView listview;
     TimpAsteptare ANGHELSALIGNY_PRECIZIEI,DRISTOR1_EROILOR,EROILOR2_ROMANCIERILOR,
             GARADENORD_STRAULESTI,PIPERA_BERCENI,RAULDOAMNEI_EROILOR2,REPUBLICA_DRISTOR2,REPUBLICA_PANTELIMON,VALEAIALOMITEI_EROILOR2;
@@ -185,7 +175,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         REPUBLICA_PANTELIMON=dataBaseHelper.selecteazaTimpDeAsteptare("REPUBLICA_PANTELIMON",ora_curenta);
         VALEAIALOMITEI_EROILOR2=dataBaseHelper.selecteazaTimpDeAsteptare("VALEAIALOMITEI_EROILOR2",ora_curenta);
         graf =new ArrayList<>();
-        for(Statie statie : lista)
+        for(Statie1 statie : lista)
         {
             NodGraf nod=new NodGraf(statie.getId_statie(),statie.getId_linie(),statie.getNume(),statie.getVecini());
             graf.add(nod);
@@ -207,7 +197,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Collections.sort(rute);
         //Log.v("msg",rute.get(0).toString());
         ArrayList<Integer> arr=new ArrayList<>();
-        for (Statie statie: rute.get(0).getStatii()) {
+        for (Statie1 statie: rute.get(0).getStatii()) {
             arr.add(statie.getId_statie());
         }
 
@@ -246,7 +236,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             {
                                 if(extras.getId_statie()==161 && nod.getId_statie()==162)
                                     Log.v("extras","161-162");
-                                for (Legaturi leg : lista1)
+                                for (Legaturi1 leg : lista1)
                                 {
                                     if (leg.getId_vecin1() == extras.getId_statie() && leg.getId_vecin2() == i) {
 
@@ -336,7 +326,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if(lastNode!=null)
         {
-            ArrayList<Statie> result=new ArrayList<>();
+            ArrayList<Statie1> result=new ArrayList<>();
             result.add(lastNode);
             int timp=lastNode.getDistance();
             while(!lastNode.getNume().equals(start.getNume()))
@@ -422,7 +412,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void writeToDataBase()
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("Users");
+        DatabaseReference myRef = database.getReference("myUsers");
 
         myRef.child(user.getEmail()).setValue(user);
     }
@@ -451,7 +441,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void readUserFromDataBase()
     {
-        Log.v("log", "log");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("myUsers/"+email_login);
 
@@ -481,7 +470,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void clickLoginButton()
     {
         getCredentialsFromLogin();
-        Log.v("user_login","The values:"+email_login+ " "+parola_login);
         readUserFromDataBase();
     }
 }

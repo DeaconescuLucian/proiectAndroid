@@ -1,6 +1,6 @@
 package com.example.proiectandroid;
 
-public class NodGraf extends Statie implements Comparable{
+public class NodGraf extends Statie1 implements Comparable{
 
     private int distance;
     private int id_previous;

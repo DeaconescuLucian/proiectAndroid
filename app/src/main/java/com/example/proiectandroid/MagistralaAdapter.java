@@ -5,18 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 public class MagistralaAdapter extends BaseAdapter {
 
-    private ArrayList<Statie> statii;
+    private ArrayList<Statie1> statii;
     Context context;
     private LayoutInflater inflater;
-    public MagistralaAdapter(Context context, ArrayList<Statie> statii)
+    public MagistralaAdapter(Context context, ArrayList<Statie1> statii)
     {
         this.statii=statii;
         this.context=context;
@@ -29,7 +27,7 @@ public class MagistralaAdapter extends BaseAdapter {
     }
 
     @Override
-    public Statie getItem(int i) {
+    public Statie1 getItem(int i) {
         return statii.get(i);
     }
 
@@ -45,7 +43,7 @@ public class MagistralaAdapter extends BaseAdapter {
         ImageView image=item.findViewById(R.id.m_ico);
 
         image.setImageResource(R.drawable.metrou_galben);
-        Statie statie= statii.get(i);
+        Statie1 statie= statii.get(i);
         if(statie.getId_linie()<=4 || statie.getId_linie()>16)
             image.setColorFilter(Color.parseColor("#D7B300"));
         if(statie.getId_linie()==5 || statie.getId_linie()==6)

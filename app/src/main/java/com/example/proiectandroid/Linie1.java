@@ -1,12 +1,12 @@
 package com.example.proiectandroid;
 
-public class Linie
+public class Linie1
 {
     private int id_linie;
     private String start;
     private String end;
 
-    public Linie(int id_linie, String start, String end) {
+    public Linie1(int id_linie, String start, String end) {
         this.id_linie = id_linie;
         this.start = start;
         this.end = end;

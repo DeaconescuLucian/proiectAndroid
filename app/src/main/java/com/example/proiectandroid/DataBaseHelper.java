@@ -116,9 +116,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 //        }
 //    }
 
-    public Statie selecteazaStatie(int id)
+    public Statie1 selecteazaStatie(int id)
     {
-        Statie statie=null;
+        Statie1 statie=null;
         String query="SELECT * FROM "+STATII +" WHERE ID_STATIE = "+id;
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor=db.rawQuery(query,null);
@@ -139,7 +139,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     vecini=null;
                 }
 
-                statie=new Statie(id_statie,id_linie,nume,vecini);
+                statie=new Statie1(id_statie,id_linie,nume,vecini);
             }while(cursor.moveToNext());
         }
         cursor.close();
@@ -147,9 +147,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return statie;
     }
 
-    public List<Statie> selecteazaStatii()
+    public List<Statie1> selecteazaStatii()
     {
-        List<Statie> returnList=new ArrayList<>();
+        List<Statie1> returnList=new ArrayList<>();
         String query="SELECT * FROM "+STATII;
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor=db.rawQuery(query,null);
@@ -170,7 +170,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     vecini=null;
                 }
 
-                Statie statie=new Statie(id_statie,id_linie,nume,vecini);
+                Statie1 statie=new Statie1(id_statie,id_linie,nume,vecini);
 
                 returnList.add(statie);
             }while(cursor.moveToNext());
@@ -180,9 +180,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return returnList;
     }
 
-    public ArrayList<Statie> selecteazaStatii(int id)
+    public ArrayList<Statie1> selecteazaStatii(int id)
     {
-        ArrayList<Statie> returnList=new ArrayList<>();
+        ArrayList<Statie1> returnList=new ArrayList<>();
         String query="SELECT * FROM "+STATII +" WHERE ID_LINIE = "+id;
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor=db.rawQuery(query,null);
@@ -203,7 +203,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                     vecini=null;
                 }
 
-                Statie statie=new Statie(id_statie,id_linie,nume,vecini);
+                Statie1 statie=new Statie1(id_statie,id_linie,nume,vecini);
 
                 returnList.add(statie);
             }while(cursor.moveToNext());
@@ -213,9 +213,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return returnList;
     }
 
-    public ArrayList<Legaturi> selecteazaLegaturi()
+    public ArrayList<Legaturi1> selecteazaLegaturi()
     {
-        ArrayList<Legaturi> returnList=new ArrayList<>();
+        ArrayList<Legaturi1> returnList=new ArrayList<>();
         String query="SELECT * FROM  LEGATURI";
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor=db.rawQuery(query,null);
@@ -225,7 +225,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 int v1=cursor.getInt(0);
                 int v2=cursor.getInt(1);
                 int timp=cursor.getInt(2);
-                Legaturi leg=new Legaturi(v1,v2,timp);
+                Legaturi1 leg=new Legaturi1(v1,v2,timp);
                 returnList.add(leg);
             }while(cursor.moveToNext());
         }
@@ -255,9 +255,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return timp;
     }
 
-    public List<Linie> selecteazaLinii()
+    public List<Linie1> selecteazaLinii()
     {
-        List<Linie> returnList=new ArrayList<>();
+        List<Linie1> returnList=new ArrayList<>();
         String query="SELECT * FROM LINII";
         SQLiteDatabase db=this.getReadableDatabase();
         Cursor cursor=db.rawQuery(query, null);
@@ -267,7 +267,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 int id_linie=cursor.getInt(0);
                 String start=cursor.getString(1);
                 String end=cursor.getString(0);
-                Linie linie =new Linie(id_linie, start,end);
+                Linie1 linie =new Linie1(id_linie, start,end);
                 returnList.add(linie);
             }
             while(cursor.moveToNext());

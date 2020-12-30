@@ -2,14 +2,14 @@ package com.example.proiectandroid;
 
 import java.util.Arrays;
 
-public class Statie
+public class Statie1
 {
     private int id_statie;
     private int id_linie;
     private String nume;
     private String[] vecini;
 
-    public Statie(int id_statie, int id_linie, String nume, String[] vecini) {
+    public Statie1(int id_statie, int id_linie, String nume, String[] vecini) {
         this.id_statie = id_statie;
         this.id_linie = id_linie;
         this.nume = nume;
@@ -48,7 +48,7 @@ public class Statie
         this.vecini = vecini;
     }
 
-    public Statie()
+    public Statie1()
     {}
 
 

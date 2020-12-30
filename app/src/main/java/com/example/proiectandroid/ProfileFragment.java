@@ -2,11 +2,21 @@ package com.example.proiectandroid;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+import androidx.sqlite.db.framework.FrameworkSQLiteOpenHelperFactory;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +33,10 @@ public class ProfileFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ListView lv_statii;
+    private AppDb database;
+    private TextView tv;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -60,7 +74,24 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "metrorex.db")
+//                .addMigrations(new Migration(1,2) {
+//                    @Override
+//                    public void migrate(@NonNull SupportSQLiteDatabase database) {
+//
+//                    }
+//                }).build();
+//        database=Room.databaseBuilder(getContext(), AppDb.class, "METROREX").
+//                 createFromAsset("databases/metrorex.db").build();
+        database= Room.databaseBuilder(getContext(),AppDb.class, "STATII").allowMainThreadQueries().build();
+//        lv_statii=view.findViewById(R.id.lv_statii);
 
+//        ArrayAdapter<Statie> adapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,database.statieDAO().getStatii());
+
+//        lv_statii.setAdapter(adapter);
+
+        tv=view.findViewById(R.id.tv_statii);
+        tv.setText(database.statieDAO().getStatii().toString());
 
         return view;
     }

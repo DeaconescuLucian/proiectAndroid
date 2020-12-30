@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +26,7 @@ public class RuteFragment extends Fragment {
     private onFragmentButtonSelected listener;
     private MagistralaAdapter magistralaAdapter;
     Button btn;
-    ArrayList<Statie> lista;
+    ArrayList<Statie1> lista;
     ListView listview;
     Spinner spinner_start;
     Spinner spinner_destinatie;

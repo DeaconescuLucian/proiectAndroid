@@ -1,6 +1,6 @@
 package com.example.proiectandroid;
 
-public class Legaturi
+public class Legaturi1
 {
     private int id_vecin1;
     private int id_vecin2;
@@ -30,13 +30,13 @@ public class Legaturi
         this.timp = timp;
     }
 
-    public Legaturi(int id_vecin1, int id_vecin2, int timp) {
+    public Legaturi1(int id_vecin1, int id_vecin2, int timp) {
         this.id_vecin1 = id_vecin1;
         this.id_vecin2 = id_vecin2;
         this.timp = timp;
     }
 
-    public Legaturi() {
+    public Legaturi1() {
     }
 
     @Override

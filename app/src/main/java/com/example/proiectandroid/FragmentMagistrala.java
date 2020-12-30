@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,7 +73,7 @@ public class FragmentMagistrala extends Fragment {
             mParam1 = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
-            ArrayList<Statie> lista;
+            ArrayList<Statie1> lista;
             lista = dataBaseHelper.selecteazaStatii(mParam1);
             magistralaAdapter=new MagistralaAdapter(getActivity(),lista);
             lvItem.setAdapter(magistralaAdapter);
