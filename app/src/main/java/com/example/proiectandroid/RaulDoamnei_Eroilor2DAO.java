@@ -19,4 +19,7 @@ public interface RaulDoamnei_Eroilor2DAO
 
     @Query("SELECT TIMPUL FROM RAULDOAMNEI_EROILOR2")
     List<Integer> getTimpiRaulDoamnei_Eroilor2();
+
+    @Query("SELECT * FROM RAULDOAMNEI_EROILOR2")
+    List<RaulDoamnei_Eroilor2> getRaulDoamnei_Eroilor2();
 }

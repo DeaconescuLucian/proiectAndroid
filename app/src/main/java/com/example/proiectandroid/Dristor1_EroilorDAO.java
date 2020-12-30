@@ -19,4 +19,7 @@ public interface Dristor1_EroilorDAO
 
     @Query("SELECT TIMPUL FROM DRISTOR1_EROILOR")
     List<Integer> getTimpiDristor1_Eroilor();
+
+    @Query("SELECT * FROM DRISTOR1_EROILOR")
+    List<Dristor1_Eroilor> getDristor1_Eroilor();
 }

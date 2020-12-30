@@ -19,4 +19,7 @@ public interface GaraDeNord_StraulestiDAO
 
     @Query("SELECT TIMPUL FROM GARADENORD_STRAULESTI")
     List<Integer> getTimpiGaraDeNord_Straulesti();
+
+    @Query("SELECT * FROM GARADENORD_STRAULESTI")
+    List<GaraDeNord_Straulesti> getGaraDeNord_Straulesti();
 }

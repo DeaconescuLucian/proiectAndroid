@@ -19,4 +19,7 @@ public interface Republica_Dristor2DAO
 
     @Query("SELECT TIMPUL FROM REPUBLICA_DRISTOR2")
     List<Integer> getTimpiRepublica_Dristor2();
+
+    @Query("SELECT * FROM REPUBLICA_DRISTOR2")
+    List<Republica_Dristor2> getRepublica_Dristor2();
 }

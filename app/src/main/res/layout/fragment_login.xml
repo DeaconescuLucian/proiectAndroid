@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/email"
+            android:text="@string/Username"
             android:textSize="20dp"
             android:gravity="left"
             android:textColor="#FFFFFF"
@@ -69,7 +69,7 @@
             />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_email_login"
+            android:id="@+id/tiet_username_login"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="16dp"
@@ -91,7 +91,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tiet_email_login"
+            app:layout_constraintTop_toBottomOf="@id/tiet_username_login"
             android:text="@string/parola"
             android:textSize="20dp"
             android:gravity="left"
@@ -108,7 +108,7 @@
             android:foregroundGravity="right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/label_parola_login"
-            app:layout_constraintTop_toBottomOf="@+id/tiet_email_login"
+            app:layout_constraintTop_toBottomOf="@+id/tiet_username_login"
             />
 
         <com.google.android.material.textfield.TextInputEditText

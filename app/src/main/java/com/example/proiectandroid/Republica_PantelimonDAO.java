@@ -19,4 +19,7 @@ public interface Republica_PantelimonDAO
 
     @Query("SELECT TIMPUL FROM REPUBLICA_PANTELIMON")
     List<Integer> getTimpiRepublica_Pantelimon();
+
+    @Query("SELECT * FROM republica_pantelimon")
+    List<Republica_Pantelimon> getRepublicaPantelimon();
 }

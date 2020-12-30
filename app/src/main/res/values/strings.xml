@@ -103,4 +103,15 @@
     <string name="register_now">Register now!</string>
     <string name="do_you_have_account_login_here">Do you have account? Login here</string>
     <string name="welcome">WELCOME</string>
+    <string name="acasaaaaa">ACASA</string>
+    <string name="ruteeee">RUTE</string>
+    <string name="deconectareeeeee">DECONECTARE</string>
+    <string name="introducetiEmail">Introduceti email-ul!</string>
+    <string name="introducetiParola">Introduceti parola!</string>
+    <string name="introducetiNume">Introduceti nume!</string>
+    <string name="introducetiPrenume">Introduceti prenume!</string>
+    <string name="introducetiEmailCorect">Email-ul nu este valid!</string>
+    <string name="existaEmailul">Exista deja un cont cu acest email. Mergi la login!</string>
+    <string name="Username">Nume utilizator</string>
+    <string name="introducetiUsername">Introduceti nume utilizator!</string>
 </resources>

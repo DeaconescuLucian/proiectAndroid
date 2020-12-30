@@ -19,4 +19,7 @@ public interface Eroilor2_RomancierilorDAO
 
     @Query("SELECT TIMPUL FROM EROILOR2_ROMANCIERILOR")
     List<Integer> getTimpiEroilor2_Romancierilor();
+
+    @Query("SELECT * FROM EROILOR2_ROMANCIERILOR")
+    List<Eroilor2_Romancierilor> getEroilor2_Romancierilor();
 }

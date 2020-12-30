@@ -5,7 +5,7 @@
             <item
                 android:id="@+id/home"
                 android:icon="@drawable/home"
-                android:title="ACASA" />
+                android:title="@string/acasaaaaa" />
             <item
                 android:id="@+id/profile"
                 android:icon="@drawable/profile"
@@ -13,8 +13,12 @@
             <item
                 android:id="@+id/rute"
                 android:icon="@drawable/route"
-                android:title="RUTE"
+                android:title="@string/ruteeee"
                 android:textColor="@color/color7"/>
+            <item android:id="@+id/deconectare"
+                android:icon="@drawable/logout_mov"
+                android:title="@string/deconectareeeeee"
+                />
         </menu>
     </item>
     <item android:title="MAGISTRALE">

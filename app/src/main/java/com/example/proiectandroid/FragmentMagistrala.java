@@ -3,6 +3,7 @@ package com.example.proiectandroid;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +31,7 @@ public class FragmentMagistrala extends Fragment {
     private String mParam2;
 
     private MagistralaAdapter magistralaAdapter;
+    private AppDb database;
 
     public FragmentMagistrala() {
         // Required empty public constructor
@@ -72,9 +75,11 @@ public class FragmentMagistrala extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
-            ArrayList<Statie1> lista;
-            lista = dataBaseHelper.selecteazaStatii(mParam1);
+//            DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
+            List<Statie> lista;
+//            lista = dataBaseHelper.selecteazaStatii(mParam1);
+            database= Room.databaseBuilder(getContext(), AppDb.class, "STATII").allowMainThreadQueries().build();
+            lista=database.statieDAO().getStatiiByIdLinie(mParam1);
             magistralaAdapter=new MagistralaAdapter(getActivity(),lista);
             lvItem.setAdapter(magistralaAdapter);
         }

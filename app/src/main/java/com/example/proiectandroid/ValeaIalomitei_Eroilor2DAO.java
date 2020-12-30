@@ -19,4 +19,7 @@ public interface ValeaIalomitei_Eroilor2DAO
 
     @Query("SELECT TIMPUL FROM VALEAIALOMITEI_EROILOR2")
     List<Integer> getTimpiValeaIalomitei_Eroilor2();
+
+    @Query("SELECT * FROM VALEAIALOMITEI_EROILOR2")
+    List<ValeaIalomitei_Eroilor2> getValeaIalomitei_Eroilor2();
 }

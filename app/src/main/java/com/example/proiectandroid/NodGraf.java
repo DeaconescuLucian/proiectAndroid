@@ -6,7 +6,7 @@ public class NodGraf extends Statie1 implements Comparable{
     private int id_previous;
     private boolean vizitat;
 
-    public NodGraf(int id_statie, int id_linie, String nume, String[] vecini) {
+    public NodGraf(int id_statie, int id_linie, String nume, String vecini) {
         super(id_statie, id_linie, nume, vecini);
         this.distance=1000000;
         this.id_previous=-1;

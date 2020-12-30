@@ -9,11 +9,14 @@ public class Statie1
     private String nume;
     private String[] vecini;
 
-    public Statie1(int id_statie, int id_linie, String nume, String[] vecini) {
+    public Statie1(int id_statie, int id_linie, String nume, String vecini) {
         this.id_statie = id_statie;
         this.id_linie = id_linie;
         this.nume = nume;
-        this.vecini = vecini;
+        if(vecini!= null)
+        {
+            this.vecini = vecini.split(",", 15);
+        }
     }
 
     public int getId_statie() {

@@ -19,4 +19,7 @@ public interface AnghelSaligny_PrecizieiDAO
 
     @Query("SELECT TIMPUL FROM ANGHELSALIGNY_PRECIZIEI")
     List<Integer> getTimpiAnghelSaligny_Preciziei();
+
+    @Query("SELECT * FROM ANGHELSALIGNY_PRECIZIEI")
+    List<AnghelSaligny_Preciziei> getAnghelSaligny_Preciziei();
 }

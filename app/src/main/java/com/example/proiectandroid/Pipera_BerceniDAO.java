@@ -19,4 +19,7 @@ public interface Pipera_BerceniDAO
 
     @Query("SELECT TIMPUL FROM PIPERA_BERCENI")
     List<Integer> getTimpiPipera_Berceni();
+
+    @Query("SELECT * FROM PIPERA_BERCENI")
+    List<Pipera_Berceni> getPipera_Berceni();
 }

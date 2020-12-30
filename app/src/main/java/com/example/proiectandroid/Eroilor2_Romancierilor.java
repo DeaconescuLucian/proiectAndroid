@@ -27,4 +27,13 @@ public class Eroilor2_Romancierilor
         this.interval_orar = interval_orar;
         this.timp = timp;
     }
+    public boolean selecteazaTimpiAsteptare(String ora_curenta)
+    {
+        String[] ore=this.interval_orar.split("-",2);
+
+        if(ora_curenta.compareTo(ore[0])>0 && ora_curenta.compareTo(ore[1])<=1)
+            return true;
+        else
+            return false;
+    }
 }

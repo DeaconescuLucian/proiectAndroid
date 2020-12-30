@@ -38,8 +38,19 @@ public class ProfileFragment extends Fragment {
     private AppDb database;
     private TextView tv;
 
+
+    private User userFromDatabase;
+    private TextView tv_nume;
+    private TextView tv_email;
+
+
     public ProfileFragment() {
         // Required empty public constructor
+    }
+
+    public ProfileFragment(User user)
+    {
+        userFromDatabase=user;
     }
 
     /**
@@ -74,6 +85,25 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
+        tv_nume=view.findViewById(R.id.tv_nume);
+        tv_email=view.findViewById(R.id.tv_email);
+
+        tv_nume.setText(userFromDatabase.getNume()+" "+userFromDatabase.getUsername());
+        tv_email.setText(userFromDatabase.getEmail());
+
+
+
+
+
+        return view;
+    }
+}
+
+
+
+
+
+
 ////        database=Room.databaseBuilder(getContext(), AppDb.class, "metrorex.db")
 ////                .addMigrations(new Migration(1,2) {
 ////                    @Override
@@ -141,11 +171,3 @@ public class ProfileFragment extends Fragment {
 //        database=Room.databaseBuilder(getContext(), AppDb.class, "VALEAIALOMITEI_EROILOR2")
 //                .allowMainThreadQueries().build();
 //        tv.setText(database.valeaIalomitei_eroilor2DAO().getTimpiValeaIalomitei_Eroilor2().toString());
-
-
-
-
-
-        return view;
-    }
-}

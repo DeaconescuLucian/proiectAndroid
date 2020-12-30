@@ -26,4 +26,7 @@ public interface StatieDAO
 
     @Query("SELECT * FROM STATII WHERE ID_LINIE=:id_statie")
     List<Statie> getStatiiByIdStatie(int id_statie);
+
+    @Query("SELECT * FROM STATII WHERE ID_STATIE=:id_statie")
+    Statie getStatieById(int id_statie);
 }

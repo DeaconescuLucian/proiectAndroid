@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -13,6 +14,7 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -33,6 +35,8 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     private onLoginLayoutPressed listener2;
     private onMagistraleLayoutPressed listener3;
     private onRuteLayoutPressed listener4;
+    private onProfilLayoutPressed listener5;
+    private onDeconectareLayoutPressed listener6;
     private ConstraintLayout l1;
     private ConstraintLayout l2;
     private ConstraintLayout l3;
@@ -41,11 +45,15 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private User userFromDatabase;
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    public HomeFragment(User user)
+    {
+        userFromDatabase=user;
+    }
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -78,40 +86,84 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
-        l1=view.findViewById(R.id.l1);
-        l2=view.findViewById(R.id.l2);
-        //l3=view.findViewById(R.id.l3);
-        l4=view.findViewById(R.id.l4);
-        l1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onRegisterPressed();
-            }
-        });
-        l2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener2.onLoginPressed();
-            }
-        });
+        if(userFromDatabase==null)
+        {
+            l1 = view.findViewById(R.id.l1);
+            l2 = view.findViewById(R.id.l2);
+            //l3=view.findViewById(R.id.l3);
+            l4 = view.findViewById(R.id.l4);
+            l1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onRegisterPressed();
+                }
+            });
+            l2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener2.onLoginPressed();
+                }
+            });
 //        l3.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //                listener3.onMagistralePressed();
 //            }
 //        });
-        l4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener4.onRutePressed();
-            }
-        });
-
+            l4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener4.onRutePressed();
+                }
+            });
+        }
+        else
+        {
+            l1 = view.findViewById(R.id.l1);
+            TextView tvl11=view.findViewById(R.id.register_home);
+            tvl11.setText("Profil");
+            TextView tvl12=view.findViewById(R.id.register_text);
+            tvl12.setText("Vizualizeaza profilul");
+            l2 = view.findViewById(R.id.l2);
+            TextView tvl21=view.findViewById(R.id.login_home);
+            tvl21.setText("Deconectare");
+            TextView tvl22=view.findViewById(R.id.login_text);
+            tvl22.setText("Paraseste aplicatia");
+            ImageView img=view.findViewById(R.id.home_icon);
+            img.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.logout, null));
+            //l3=view.findViewById(R.id.l3);
+            l4 = view.findViewById(R.id.l4);
+            l1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener5.onProfilPressed();
+                }
+            });
+            l2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener6.onDeconectarePressed();
+                }
+            });
+//        l3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener3.onMagistralePressed();
+//            }
+//        });
+            l4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener4.onRutePressed();
+                }
+            });
+        }
         return view;
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
+    public void onAttach(@NonNull Context context)
+    {
         super.onAttach(context);
         if(context instanceof onRegisterLayoutPressed)
             listener=(onRegisterLayoutPressed) context;
@@ -137,6 +189,18 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
         {
             throw new ClassCastException(context.toString() + "must implement listener");
         }
+        if(context instanceof onProfilLayoutPressed)
+            listener5=(onProfilLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+        if(context instanceof onDeconectareLayoutPressed)
+            listener6=(onDeconectareLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
     }
 
     public interface onRegisterLayoutPressed
@@ -157,5 +221,15 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     public interface onRuteLayoutPressed
     {
         public void onRutePressed();
+    }
+
+    public interface onProfilLayoutPressed
+    {
+        public void onProfilPressed();
+    }
+
+    public interface onDeconectareLayoutPressed
+    {
+        public void onDeconectarePressed();
     }
 }

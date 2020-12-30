@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,7 +28,7 @@ public class RuteFragment extends Fragment {
     private onFragmentButtonSelected listener;
     private MagistralaAdapter magistralaAdapter;
     Button btn;
-    ArrayList<Statie1> lista;
+    List<Statie> lista;
     ListView listview;
     Spinner spinner_start;
     Spinner spinner_destinatie;
@@ -41,6 +43,7 @@ public class RuteFragment extends Fragment {
     private ArrayList<Integer> mParam1=null;
     private long pos1;
     private long pos2;
+    private AppDb database;
 
 
     public RuteFragment() {
@@ -95,12 +98,13 @@ public class RuteFragment extends Fragment {
         spinner_start.setAdapter(adapter);
         spinner_destinatie.setAdapter(adapter);
         lista=new ArrayList<>();
-        DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
+//        DataBaseHelper dataBaseHelper = new DataBaseHelper(getActivity());
+        database= Room.databaseBuilder(getContext(), AppDb.class, "STATII").allowMainThreadQueries().build();
         if(mParam1!=null)
         {
             for (Integer id: mParam1) {
 
-                lista.add(dataBaseHelper.selecteazaStatie(id));
+                lista.add(database.statieDAO().getStatieById(id));
             }
             magistralaAdapter=new MagistralaAdapter(getActivity(),lista);
             listview.setAdapter(magistralaAdapter);

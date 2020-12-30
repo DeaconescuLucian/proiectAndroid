@@ -3,13 +3,13 @@ package com.example.proiectandroid;
 public class User
 {
     private String nume;
-    private String prenume;
+    private String username;
     private String email;
     private String parola;
 
-    public User(String nume, String prenume, String email, String parola) {
+    public User(String nume, String username, String email, String parola) {
         this.nume = nume;
-        this.prenume = prenume;
+        this.username = username;
         this.email = email;
         this.parola = parola;
     }
@@ -23,7 +23,7 @@ public class User
     public String toString() {
         return "User{" +
                 "nume='" + nume + '\'' +
-                ", prenume='" + prenume + '\'' +
+                ", prenume='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", parola='" + parola + '\'' +
                 '}';
@@ -37,12 +37,12 @@ public class User
         this.nume = nume;
     }
 
-    public String getPrenume() {
-        return prenume;
+    public String getUsername() {
+        return username;
     }
 
     public void setPrenume(String prenume) {
-        this.prenume = prenume;
+        this.username = username;
     }
 
     public String getEmail() {
