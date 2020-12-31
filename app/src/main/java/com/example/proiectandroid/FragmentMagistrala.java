@@ -70,8 +70,8 @@ public class FragmentMagistrala extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_magistrala, container, false);
         ListView lvItem=view.findViewById(R.id.lv_items);
-        TextView textView=view.findViewById(R.id.tv);
-        textView.setText(mParam2);
+        //TextView textView=view.findViewById(R.id.tv);
+        //textView.setText(mParam2);
         if (getArguments() != null) {
             mParam1 = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

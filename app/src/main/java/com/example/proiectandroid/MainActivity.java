@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        this.setTitle("HOME");
         String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR","GARADENORD_STRAULESTI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2","PIPERA_BERCENI","STATII","STATII_CU_BAI","STATII_ABONAMENTE_PENTRU_STUDENTI","LEGATURI","LINII"};
         for(String tabela : tabele)
         {
@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         if(item.getItemId()==R.id.m1)
         {
+            this.setTitle("DRISTOR2-PANTELIMON");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(4,"DRISTOR2-PANTELIMON"));
@@ -141,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.m2)
         {
+            this.setTitle("BERCENI-PIPERA");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(5,"BERCENI-PIPERA"));
@@ -148,6 +150,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.m3)
         {
+            this.setTitle("PRECIZIEI-ANGHEL SALIGNY");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(7,"PRECIZIEI-ANGHEL SALIGNY"));
@@ -155,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.m4)
         {
+            this.setTitle("GARA DE NORD-STRAULESTI");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(10,"GARA DE NORD-STRAULESTI"));
@@ -162,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.m5)
         {
+            this.setTitle("RAUL DOAMNEI-EROILOR");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(16,"RAUL DOAMNEI-EROILOR"));
@@ -169,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.rute)
         {
+            this.setTitle("RUTE");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new RuteFragment());
@@ -176,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.home)
         {
+            this.setTitle("HOME");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new HomeFragment(userFromDatabase));
@@ -183,6 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.deconectare)
         {
+            this.setTitle("HOME");
             NavigationView navigationView=findViewById(R.id.navigationView);
             Menu menu=navigationView.getMenu();
             menu.findItem(R.id.deconectare).setVisible(false);
@@ -196,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             if(userFromDatabase==null)
             {
+                this.setTitle("LOGIN");
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());
@@ -203,6 +212,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             else
             {
+                this.setTitle("PROFILE");
                 fragmentManager = getSupportFragmentManager();
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.container_fragment, new ProfileFragment(userFromDatabase));
@@ -211,6 +221,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(item.getItemId()==R.id.abonamente)
         {
+            this.setTitle("ABONAMENTE");
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,new AbonamenteFragment());
@@ -357,7 +368,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment,new RuteFragment(arr, position1, position2));
+        fragmentTransaction.replace(R.id.container_fragment,new RuteFragment(arr, position1, position2,rute.get(0).getTimp()));
         fragmentTransaction.commit();
     }
 
@@ -517,6 +528,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onRegisterPressed()
     {
+        this.setTitle("REGISTER");
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new RegisterFragment());
@@ -526,6 +538,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onLoginPressed()
     {
+        this.setTitle("LOGIN");
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());
@@ -544,6 +557,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onRutePressed()
     {
+        this.setTitle("RUTE");
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment, new RuteFragment());
@@ -690,6 +704,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             }
                         }
 
+                        //navigationView.getContext().setTitle("PROFILE");
                         fragmentManager=getSupportFragmentManager();
                         fragmentTransaction=fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment(userFromDatabase));

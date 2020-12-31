@@ -10,27 +10,13 @@
     android:background="@color/color1"
     >
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gaseste cea mai buna ruta pentru tine!"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/title"
-        android:gravity="center"
-        android:layout_marginTop="50dp"
-        android:textSize="20sp"
-        android:textColor="@color/color7"
-        />
     <Spinner
         android:id="@+id/spinner_statie_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_toTopOf="parent"
         android:entries="@array/statii"
         android:prompt="@string/alege1"
         android:spinnerMode="dropdown"
@@ -70,15 +56,24 @@
         android:textSize="10sp"
         android:backgroundTint="@color/color7"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buton"
+        android:layout_marginTop="30dp"
+        android:id="@+id/durata"/>
     <ListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buton"
+        app:layout_constraintTop_toBottomOf="@id/durata"
         android:gravity="center"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="300dp"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 

@@ -15,10 +15,6 @@
                 android:icon="@drawable/route"
                 android:title="@string/ruteeee"
                 android:textColor="@color/color7"/>
-            <item android:id="@+id/deconectare"
-                android:icon="@drawable/logout_mov"
-                android:title="@string/deconectareeeeee"
-                />
         </menu>
     </item>
     <item android:title="">
@@ -49,12 +45,16 @@
         <menu>
             <item
                 android:id="@+id/abonamente"
-                android:icon="@drawable/subway_yellow"
+                android:icon="@drawable/abonament"
                 android:title="ABONAMENTE"/>
             <item
                 android:id="@+id/bai"
-                android:icon="@drawable/subway_yellow"
+                android:icon="@drawable/bai"
                 android:title="BAI"/>
+            <item android:id="@+id/deconectare"
+                android:icon="@drawable/logout_mov"
+                android:title="@string/deconectareeeeee"
+                />
         </menu>
     </item>
 

@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,18 +45,20 @@ public class RuteFragment extends Fragment {
     private long pos1;
     private long pos2;
     private AppDb database;
+    private int durata;
 
 
     public RuteFragment() {
         // Required empty public constructor
-
+        durata=0;
     }
 
-    public RuteFragment(ArrayList<Integer> arr, long position1, long position2) {
+    public RuteFragment(ArrayList<Integer> arr, long position1, long position2,int durata) {
         // Required empty public constructor
         mParam1=arr;
         pos1=position1;
         pos2=position2;
+        this.durata=durata;
     }
 
     /**
@@ -93,6 +96,16 @@ public class RuteFragment extends Fragment {
         listview=view.findViewById(R.id.listview);
         spinner_start=view.findViewById(R.id.spinner_statie_start);
         spinner_destinatie=view.findViewById(R.id.spinner_statie_end);
+        TextView tv_durata=view.findViewById(R.id.durata);
+        Integer dur=new Integer(durata);
+        if(durata>0)
+            tv_durata.setText("Durata estimata a calatoriei: "+dur.toString()+" de minute.");
+        if(durata>60)
+        {
+            dur=dur-60;
+            tv_durata.setText("Durata estimata a calatoriei: O ora si "+dur.toString()+" de minute.");
+        }
+
         ArrayAdapter adapter=ArrayAdapter.createFromResource(getActivity(),R.array.statii,R.layout.spinner_item);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown);
         spinner_start.setAdapter(adapter);
