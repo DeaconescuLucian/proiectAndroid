@@ -13,6 +13,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -30,6 +32,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -58,8 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             GARADENORD_STRAULESTI,PIPERA_BERCENI,RAULDOAMNEI_EROILOR2,REPUBLICA_DRISTOR2,REPUBLICA_PANTELIMON,VALEAIALOMITEI_EROILOR2;
     ArrayList<Ruta> rute;
     MagistralaAdapter magistralaAdapter;
-
-
     private ArrayList<User> users;
     private User user;
     private TextInputEditText tiet_nume;
@@ -71,25 +75,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String username;
     private String email;
     private String parola;
-
     private TextInputEditText tiet_username_login;
     private TextInputEditText tiet_parola_login;
     private String username_login;
     private String parola_login;
-
     private User userFromDatabase;
-
     private AppDb database;
-
     private List<Statie1> statie1;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR",
+                "GARADENORD_STRAULESTI","PIPERA_BERCENI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2"};
+        for(String tabela : tabele)
+        {
+            create_database(tabela);
+        }
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawerLayout = findViewById(R.id.drawer);
@@ -180,7 +183,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment,new HomeFragment(userFromDatabase));
             fragmentTransaction.commit();
         }
-
         if(item.getItemId()==R.id.profile)
         {
             if(userFromDatabase==null)
@@ -706,4 +708,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.replace(R.id.container_fragment,new HomeFragment(null));
         fragmentTransaction.commit();
     }
+
+    public void create_database(String db)
+    {
+        AssetManager assets;
+        String databaseDir;
+        Context context=this;
+        assets = context.getAssets();
+        databaseDir = context.getApplicationInfo().dataDir + "/databases/";
+
+        File file = new File(databaseDir);
+        if(!file.exists()) file.mkdir();
+
+
+        try {
+            InputStream inputStream = assets.open("databases/" + db);
+
+            FileOutputStream outputStream = new FileOutputStream(databaseDir + db);
+
+            byte[] buffer = new byte[8 * 1024];
+
+            int readed;
+            while ((readed = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, readed);
+            }
+
+            outputStream.flush();
+
+            outputStream.close();
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
