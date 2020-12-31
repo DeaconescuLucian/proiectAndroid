@@ -45,6 +45,9 @@ public class LoginFragment extends Fragment {
     private Button btn_login;
     private Login listener;
     private String email_login;
+    private TextInputEditText tiet_username_login;
+    private TextInputEditText tiet_parola_login;
+    private int ok;
 
 
 
@@ -96,17 +99,36 @@ public class LoginFragment extends Fragment {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.clickLoginButton();
+                listener.clickLoginButton(ok);
             }
         });
 
+        ok=0;
+
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+        String username1=sharedPreferences.getString("USERNAME", "defaultStringIfNothingFound");
+        String parola1=sharedPreferences.getString("PAROLA", "defaultStringIfNothingFound");
+        Log.v("login", username1);
+        Log.v("login", parola1);
+
+        tiet_username_login=view.findViewById(R.id.tiet_username_login);
+        tiet_parola_login=view.findViewById(R.id.tiet_parola_login);
+
+        if(username1!=null & parola1!=null)
+        {
+            ok=1;
+            tiet_username_login.setText(username1);
+            tiet_parola_login.setText(parola1);
+        }
 
         return view;
     }
 
     public interface Login
     {
-        public  void clickLoginButton();
+        public  void clickLoginButton(int ok);
     }
 
     @Override

@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AppDb database;
     private List<Statie1> statie1;
     private CheckBox checkBox;
+    private int OK;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +117,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Menu menu=navigationView.getMenu();
             menu.findItem(R.id.deconectare).setVisible(false);
         }
+
+        OK=0;
+
 
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
@@ -670,11 +674,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         SharedPreferences sharedPreferences=getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor= sharedPreferences.edit();
 
-                        if(checkBox.isChecked())
+                        if(OK==0)
                         {
-                            editor.putString("USERNAME", userFromDatabase.getUsername());
-                            editor.putString("PAROLA", userFromDatabase.getParola());
-                            editor.commit();
+                            if (checkBox.isChecked()) {
+                                editor.putString("USERNAME", userFromDatabase.getUsername());
+                                editor.putString("PAROLA", userFromDatabase.getParola());
+                                editor.commit();
+                            }
                         }
 
                         fragmentManager=getSupportFragmentManager();
@@ -698,8 +704,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void clickLoginButton()
+    public void clickLoginButton(int ok)
     {
+        OK=ok;
         getCredentialsFromLogin();
         readUserFromDataBase();
     }
