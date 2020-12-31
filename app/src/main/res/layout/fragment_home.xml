@@ -44,7 +44,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register_home"
             android:id="@+id/register_text"
-            android:text="Creeaza un cont nou pe gratis!"
+            android:text="Creeaza un cont nou gratis!"
             android:textColor="#FFFFFF"
             android:gravity="left"
             android:textSize="15sp"
