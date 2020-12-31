@@ -108,15 +108,15 @@ public class LoginFragment extends Fragment {
         SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor= sharedPreferences.edit();
 
-        String username1=sharedPreferences.getString("USERNAME", "defaultStringIfNothingFound");
-        String parola1=sharedPreferences.getString("PAROLA", "defaultStringIfNothingFound");
+        String username1=sharedPreferences.getString("USERNAME", "");
+        String parola1=sharedPreferences.getString("PAROLA", "");
         Log.v("login", username1);
         Log.v("login", parola1);
 
         tiet_username_login=view.findViewById(R.id.tiet_username_login);
         tiet_parola_login=view.findViewById(R.id.tiet_parola_login);
 
-        if(username1!=null & parola1!=null)
+        if(username1!="" & parola1!="")
         {
             ok=1;
             tiet_username_login.setText(username1);
