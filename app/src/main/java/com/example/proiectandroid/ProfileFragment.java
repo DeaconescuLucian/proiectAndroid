@@ -90,7 +90,7 @@ public class ProfileFragment extends Fragment {
         tv_email=view.findViewById(R.id.tv_email);
         tv_username=view.findViewById(R.id.tv_username);
 
-        tv_nume.setText(userFromDatabase.getNume()+" "+userFromDatabase.getUsername());
+        tv_nume.setText(userFromDatabase.getNume());
         tv_email.setText(userFromDatabase.getEmail());
         tv_username.setText(userFromDatabase.getUsername());
 
