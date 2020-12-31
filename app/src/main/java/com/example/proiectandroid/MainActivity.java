@@ -14,6 +14,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -82,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private User userFromDatabase;
     private AppDb database;
     private List<Statie1> statie1;
+    private CheckBox checkBox;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -660,6 +664,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         NavigationView navigationView=findViewById(R.id.navigationView);
                         Menu menu=navigationView.getMenu();
                         menu.findItem(R.id.deconectare).setVisible(true);
+
+                        checkBox=findViewById(R.id.checkbox);
+
+                        SharedPreferences sharedPreferences=getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+                        if(checkBox.isChecked())
+                        {
+                            editor.putString("USERNAME", userFromDatabase.getUsername());
+                            editor.putString("PAROLA", userFromDatabase.getParola());
+                            editor.commit();
+                        }
+
                         fragmentManager=getSupportFragmentManager();
                         fragmentTransaction=fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment(userFromDatabase));

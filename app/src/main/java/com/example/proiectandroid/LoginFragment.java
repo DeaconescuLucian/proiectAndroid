@@ -1,6 +1,7 @@
 package com.example.proiectandroid;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.ChildEventListener;
@@ -42,15 +44,22 @@ public class LoginFragment extends Fragment {
     private String mParam2;
     private Button btn_login;
     private Login listener;
+    private CheckBox checkBox;
 
     private TextInputEditText tiet_email_login;
     private TextInputEditText tiet_parola_login;
     private String email_login;
     private String parola_login;
-    User userFromDatabase;
+    private User userFromLogin;
+
 
     public LoginFragment() {
         // Required empty public constructor
+    }
+
+    public LoginFragment(User user)
+    {
+        userFromLogin=user;
     }
 
     public LoginFragment(String email)
@@ -100,6 +109,17 @@ public class LoginFragment extends Fragment {
                 listener.clickLoginButton();
             }
         });
+
+        checkBox=view.findViewById(R.id.checkbox);
+
+        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sharedPreferences.edit();
+
+        if(checkBox.isChecked())
+        {
+
+        }
+
 
         return view;
     }

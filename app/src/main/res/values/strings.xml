@@ -117,4 +117,5 @@
     <string name="utilizatorInexistent">Nume de utilizator inexistent.</string>
     <string name="parolaGresita">Parola incorecta.</string>
     <string name="existaUser">Utilizator existent.</string>
+    <string name="retine_numele_si_parola">Retine numele si parola</string>
 </resources>
