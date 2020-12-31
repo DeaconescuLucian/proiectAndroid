@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR","GARADENORD_STRAULESTI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2","PIPERA_BERCENI","STATII","STATII_CU_BAI","STATII_ABONAMENTE_PENTRU_STUDENTI","LEGATURI","LINII"};
         for(String tabela : tabele)
         {
+            if(tabela.equals("STATII_ABONAMENTE_PENTRU_STUDENTI") || tabela.equals("STATII_CU_BAI"))
+                Log.v("ceva",tabela);
             create_database(tabela);
         }
         toolbar=findViewById(R.id.toolbar);
@@ -206,6 +208,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragmentTransaction.replace(R.id.container_fragment, new ProfileFragment(userFromDatabase));
                 fragmentTransaction.commit();
             }
+        }
+        if(item.getItemId()==R.id.abonamente)
+        {
+            fragmentManager=getSupportFragmentManager();
+            fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new AbonamenteFragment());
+            fragmentTransaction.commit();
         }
         return true;
     }

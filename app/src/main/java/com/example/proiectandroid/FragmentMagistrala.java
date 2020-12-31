@@ -30,7 +30,7 @@ public class FragmentMagistrala extends Fragment {
     private int mParam1;
     private String mParam2;
 
-    private MagistralaAdapter magistralaAdapter;
+    private MagistralaAdapter1 magistralaAdapter;
     private AppDb database;
 
     public FragmentMagistrala() {
@@ -80,7 +80,7 @@ public class FragmentMagistrala extends Fragment {
 //            lista = dataBaseHelper.selecteazaStatii(mParam1);
             database= Room.databaseBuilder(getContext(), AppDb.class, "STATII").allowMainThreadQueries().build();
             lista=database.statieDAO().getStatiiByIdLinie(mParam1);
-            magistralaAdapter=new MagistralaAdapter(getActivity(),lista);
+            magistralaAdapter=new MagistralaAdapter1(getActivity(),lista);
             lvItem.setAdapter(magistralaAdapter);
         }
         return view;

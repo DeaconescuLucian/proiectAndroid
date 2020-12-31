@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="HOME">
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/home"
@@ -21,7 +21,7 @@
                 />
         </menu>
     </item>
-    <item android:title="MAGISTRALE">
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/m1"
@@ -45,4 +45,17 @@
                 android:title="RAUL DOAMNEI-EROILOR" />
         </menu>
     </item>
+    <item android:title="">
+        <menu>
+            <item
+                android:id="@+id/abonamente"
+                android:icon="@drawable/subway_yellow"
+                android:title="ABONAMENTE"/>
+            <item
+                android:id="@+id/bai"
+                android:icon="@drawable/subway_yellow"
+                android:title="BAI"/>
+        </menu>
+    </item>
+
 </menu>

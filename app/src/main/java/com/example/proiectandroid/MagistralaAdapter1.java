@@ -11,12 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MagistralaAdapter extends BaseAdapter {
+public class MagistralaAdapter1 extends BaseAdapter {
 
     private List<Statie> statii;
     Context context;
     private LayoutInflater inflater;
-    public MagistralaAdapter(Context context, List<Statie> statii)
+    public MagistralaAdapter1(Context context, List<Statie> statii)
     {
         this.statii=statii;
         this.context=context;
@@ -46,29 +46,18 @@ public class MagistralaAdapter extends BaseAdapter {
         image.setImageResource(R.drawable.metrou_galben);
         Statie statie= statii.get(i);
         if(statie.id_linie<=4 || statie.id_linie>16)
-        {image.setColorFilter(Color.parseColor("#D7B300"));
-            item.setBackgroundColor(Color.parseColor("#20D7B300"));
-        }
+            image.setColorFilter(Color.parseColor("#D7B300"));
         if(statie.id_linie==5 || statie.id_linie==6)
-        {image.setColorFilter(Color.parseColor("#000069"));
-            item.setBackgroundColor(Color.parseColor("#20000069"));
-        }
+            image.setColorFilter(Color.parseColor("#000069"));
         if(statie.id_linie==7 || statie.id_linie==8)
-        {image.setColorFilter(Color.parseColor("#9B0000"));
-            item.setBackgroundColor(Color.parseColor("#209B0000"));
-        }
+            image.setColorFilter(Color.parseColor("#9B0000"));
         if(statie.id_linie==10 || statie.id_linie==9)
-        {image.setColorFilter(Color.parseColor("#024A02"));
-            item.setBackgroundColor(Color.parseColor("#20024A02"));
-        }
+            image.setColorFilter(Color.parseColor("#024A02"));
         if(statie.id_linie<=16 && statie.id_linie>10)
-        {image.setColorFilter(Color.parseColor("#B16A01"));
-            item.setBackgroundColor(Color.parseColor("#20B16A01"));
-        }
+            image.setColorFilter(Color.parseColor("#B16A01"));
         nume.setText(statie.nume_statie);
         return item;
     }
 
 
 }
-
