@@ -44,23 +44,14 @@ public class LoginFragment extends Fragment {
     private String mParam2;
     private Button btn_login;
     private Login listener;
-    private CheckBox checkBox;
-
-    private TextInputEditText tiet_email_login;
-    private TextInputEditText tiet_parola_login;
     private String email_login;
-    private String parola_login;
-    private User userFromLogin;
+
 
 
     public LoginFragment() {
         // Required empty public constructor
     }
 
-    public LoginFragment(User user)
-    {
-        userFromLogin=user;
-    }
 
     public LoginFragment(String email)
     {
@@ -100,7 +91,6 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        tiet_email_login=view.findViewById(R.id.tiet_username_login);
         btn_login= view.findViewById(R.id.btn_login);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -109,16 +99,6 @@ public class LoginFragment extends Fragment {
                 listener.clickLoginButton();
             }
         });
-
-        checkBox=view.findViewById(R.id.checkbox);
-
-        SharedPreferences sharedPreferences=this.getActivity().getSharedPreferences("sharedPreferences", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor= sharedPreferences.edit();
-
-        if(checkBox.isChecked())
-        {
-
-        }
 
 
         return view;
