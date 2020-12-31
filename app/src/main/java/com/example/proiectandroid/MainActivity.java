@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR",
-                "GARADENORD_STRAULESTI","PIPERA_BERCENI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2"};
+                "GARADENORD_STRAULESTI","PIPERA_BERCENI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2","STATII","STATII_CU_BAI","STATII_ABONAMENTE_PENTRU_STUDENTI"};
         for(String tabela : tabele)
         {
             create_database(tabela);
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Date date = new Date(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, 0);
+        cal.add(Calendar.HOUR_OF_DAY, 10);
         String ora_curenta=formatter.format(cal.getTime());
         Log.v("mora",ora_curenta);
 //        DataBaseHelper dataBaseHelper=new DataBaseHelper(this);
