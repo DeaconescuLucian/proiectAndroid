@@ -92,8 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR",
-                "GARADENORD_STRAULESTI","PIPERA_BERCENI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2","STATII","STATII_CU_BAI","STATII_ABONAMENTE_PENTRU_STUDENTI"};
+        String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR","GARADENORD_STRAULESTI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2","PIPERA_BERCENI","STATII","STATII_CU_BAI","STATII_ABONAMENTE_PENTRU_STUDENTI","LEGATURI","LINII"};
         for(String tabela : tabele)
         {
             create_database(tabela);
@@ -218,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Date date = new Date(System.currentTimeMillis());
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, 10);
+        cal.add(Calendar.HOUR_OF_DAY, 0);
         String ora_curenta=formatter.format(cal.getTime());
         Log.v("mora",ora_curenta);
 //        DataBaseHelper dataBaseHelper=new DataBaseHelper(this);
@@ -342,7 +341,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         Collections.sort(rute);
-        //Log.v("msg",rute.get(0).toString());
         ArrayList<Integer> arr=new ArrayList<>();
         for (Statie1 statie: rute.get(0).getStatii()) {
             arr.add(statie.getId_statie());
@@ -421,10 +419,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 {
                                     timp=REPUBLICA_DRISTOR2.getTimp();
                                 }
-                                if(nod.getId_linie()==3 || nod.getId_linie()==4)
-                                {
-                                    timp=REPUBLICA_PANTELIMON.getTimp();
-                                }
                                 if(nod.getId_linie()==5 || nod.getId_linie()==6)
                                 {
                                     timp=PIPERA_BERCENI.getTimp();
@@ -452,6 +446,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 if (nod.getId_linie()==17 || nod.getId_linie()==18)
                                 {
                                     timp=DRISTOR1_EROILOR.getTimp();
+                                }
+                                if(nod.getId_linie()==3 || nod.getId_linie()==4)
+                                {
+                                    timp=REPUBLICA_PANTELIMON.getTimp();
                                 }
                                 if(nod.getDistance()>extras.getDistance()+timp)
                                 {
