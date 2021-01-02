@@ -227,6 +227,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment,new AbonamenteFragment());
             fragmentTransaction.commit();
         }
+        if(item.getItemId()==R.id.bai)
+        {
+            this.setTitle("BAI");
+            fragmentManager=getSupportFragmentManager();
+            fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,new BaiFragment());
+            fragmentTransaction.commit();
+        }
         return true;
     }
 
@@ -640,6 +648,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     if(ok==0)
                     {
                         writeToDataBase();
+                        MainActivity.this.setTitle("LOGIN");
                         fragmentManager=getSupportFragmentManager();
                         fragmentTransaction=fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());
@@ -704,7 +713,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             }
                         }
 
-                        //navigationView.getContext().setTitle("PROFILE");
+                        MainActivity.this.setTitle("PROFILE");
                         fragmentManager=getSupportFragmentManager();
                         fragmentTransaction=fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment(userFromDatabase));
@@ -736,6 +745,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onProfilPressed()
     {
+        this.setTitle("PROFILE");
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment,new ProfileFragment(userFromDatabase));
@@ -749,6 +759,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Menu menu=navigationView.getMenu();
         menu.findItem(R.id.deconectare).setVisible(false);
         userFromDatabase=null;
+        this.setTitle("HOME");
         fragmentManager=getSupportFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.container_fragment,new HomeFragment(null));
