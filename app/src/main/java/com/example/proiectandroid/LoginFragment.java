@@ -110,8 +110,6 @@ public class LoginFragment extends Fragment {
 
         String username1=sharedPreferences.getString("USERNAME", "");
         String parola1=sharedPreferences.getString("PAROLA", "");
-        Log.v("login", username1);
-        Log.v("login", parola1);
 
         tiet_username_login=view.findViewById(R.id.tiet_username_login);
         tiet_parola_login=view.findViewById(R.id.tiet_parola_login);

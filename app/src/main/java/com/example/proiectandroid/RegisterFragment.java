@@ -103,13 +103,11 @@ public class RegisterFragment extends Fragment {
                 // whenever data at this location is updated.
 
                 users=(ArrayList<User>)(dataSnapshot.getValue());
-                Log.d("firebase_read", "Value is: " + users);
             }
 
             @Override
             public void onCancelled(DatabaseError error) {
                 // Failed to read value
-                Log.w("firebase_read", "Failed to read value.", error.toException());
             }
         });
 
