@@ -116,7 +116,7 @@ public class LoginFragment extends Fragment {
         tiet_username_login=view.findViewById(R.id.tiet_username_login);
         tiet_parola_login=view.findViewById(R.id.tiet_parola_login);
 
-        if(username1!="" & parola1!="")
+        if(username1!=null & parola1!=null)
         {
             ok=1;
             tiet_username_login.setText(username1);
