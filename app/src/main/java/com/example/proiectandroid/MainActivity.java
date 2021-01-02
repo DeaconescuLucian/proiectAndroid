@@ -97,8 +97,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String tabele[]={"ANGHELSALIGNY_PRECIZIEI","DRISTOR1_EROILOR","EROILOR2_ROMANCIERILOR","GARADENORD_STRAULESTI","RAULDOAMNEI_EROILOR2","REPUBLICA_DRISTOR2","REPUBLICA_PANTELIMON","VALEAIALOMITEI_EROILOR2","PIPERA_BERCENI","STATII","STATII_CU_BAI","STATII_ABONAMENTE_PENTRU_STUDENTI","LEGATURI","LINII"};
         for(String tabela : tabele)
         {
-            if(tabela.equals("STATII_ABONAMENTE_PENTRU_STUDENTI") || tabela.equals("STATII_CU_BAI"))
-                Log.v("ceva",tabela);
             create_database(tabela);
         }
         toolbar=findViewById(R.id.toolbar);
@@ -251,143 +249,118 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onButtonSelected(String start,String end, long position1, long position2)
     {
-        SimpleDateFormat formatter= new SimpleDateFormat("HH:mm:ss");
-        Date date = new Date(System.currentTimeMillis());
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY, 0);
-        String ora_curenta=formatter.format(cal.getTime());
-        Log.v("mora",ora_curenta);
-//        DataBaseHelper dataBaseHelper=new DataBaseHelper(this);
-        database= Room.databaseBuilder(getApplicationContext(), AppDb.class, "STATII").allowMainThreadQueries().build();
-        lista=database.statieDAO().getStatii();
-        for(Statie statie : lista)
-        {
-            Statie1 s=new Statie1(statie.id_statie, statie.id_linie, statie.nume_statie, statie.vecini);
-            statie1.add(s);
-        }
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "LEGATURI") .allowMainThreadQueries().build();
-        lista1=database.legaturiDAO().getLegaturi();
-//        lista=dataBaseHelper.selecteazaStatii();
-//        lista1=dataBaseHelper.selecteazaLegaturi();
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "ANGHELSALIGNY_PRECIZIEI") .allowMainThreadQueries().build();
-        List<AnghelSaligny_Preciziei> l1=database.anghelSaligny_precizieiDAO().getAnghelSaligny_Preciziei();
-        for (AnghelSaligny_Preciziei anghelSaligny_preciziei:l1)
-        {
-            if(anghelSaligny_preciziei.selecteazaTimpiAsteptare(ora_curenta))
-                ANGHELSALIGNY_PRECIZIEI=new TimpAsteptare(anghelSaligny_preciziei.interval_orar, anghelSaligny_preciziei.timp);
-        }
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "DRISTOR1_EROILOR") .allowMainThreadQueries().build();
-        List<Dristor1_Eroilor> l2=database.dristor1_eroilorDAO().getDristor1_Eroilor();
-        for (Dristor1_Eroilor dristor1_eroilor : l2)
-        {
-            if(dristor1_eroilor.selecteazaTimpiAsteptare(ora_curenta))
-                DRISTOR1_EROILOR=new TimpAsteptare(dristor1_eroilor.interval_orar, dristor1_eroilor.timp);
-        }
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "EROILOR2_ROMANCIERILOR") .allowMainThreadQueries().build();
-        List<Eroilor2_Romancierilor> l3=database.eroilor2_romancierilorDAO().getEroilor2_Romancierilor();
-        for (Eroilor2_Romancierilor eroilor2_romancierilor : l3)
-        {
-            if(eroilor2_romancierilor.selecteazaTimpiAsteptare(ora_curenta))
-                EROILOR2_ROMANCIERILOR=new TimpAsteptare(eroilor2_romancierilor.interval_orar, eroilor2_romancierilor.timp);
-        }
-//        DRISTOR1_EROILOR=dataBaseHelper.selecteazaTimpDeAsteptare("DRISTOR1_EROILOR",ora_curenta);
-//        EROILOR2_ROMANCIERILOR=dataBaseHelper.selecteazaTimpDeAsteptare("EROILOR2_ROMANCIERILOR",ora_curenta);
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "GARADENORD_STRAULESTI") .allowMainThreadQueries().build();
-        List<GaraDeNord_Straulesti> l4=database.garaDeNord_straulestiDAO().getGaraDeNord_Straulesti();
-        for (GaraDeNord_Straulesti garaDeNord_straulesti : l4)
-        {
-            if(garaDeNord_straulesti.selecteazaTimpiAsteptare(ora_curenta))
-                GARADENORD_STRAULESTI=new TimpAsteptare(garaDeNord_straulesti.interval_orar, garaDeNord_straulesti.timp);
-        }
-//        GARADENORD_STRAULESTI=dataBaseHelper.selecteazaTimpDeAsteptare("GARADENORD_STRAULESTI",ora_curenta);
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "PIPERA_BERCENI") .allowMainThreadQueries().build();
-        List<Pipera_Berceni> l5=database.pipera_berceniDAO().getPipera_Berceni();
-        for (Pipera_Berceni pipera_berceni : l5)
-        {
-            if(pipera_berceni.selecteazaTimpiAsteptare(ora_curenta))
-                PIPERA_BERCENI=new TimpAsteptare(pipera_berceni.interval_orar, pipera_berceni.timp);
-        }
-//        PIPERA_BERCENI=dataBaseHelper.selecteazaTimpDeAsteptare("PIPERA_BERCENI",ora_curenta);
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "RAULDOAMNEI_EROILOR2") .allowMainThreadQueries().build();
-        List<RaulDoamnei_Eroilor2> l6=database.raulDoamnei_eroilor2DAO().getRaulDoamnei_Eroilor2();
-        for (RaulDoamnei_Eroilor2 raulDoamnei_eroilor2 : l6)
-        {
-            if(raulDoamnei_eroilor2.selecteazaTimpiAsteptare(ora_curenta))
-                RAULDOAMNEI_EROILOR2=new TimpAsteptare(raulDoamnei_eroilor2.interval_orar, raulDoamnei_eroilor2.timp);
-        }
-//        RAULDOAMNEI_EROILOR2=dataBaseHelper.selecteazaTimpDeAsteptare("RAULDOAMNEI_EROILOR2",ora_curenta);
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "REPUBLICA_DRISTOR2") .allowMainThreadQueries().build();
-        List<Republica_Dristor2> l7=database.republica_dristor2DAO().getRepublica_Dristor2();
-        for (Republica_Dristor2 republica_dristor2 : l7)
-        {
-            if(republica_dristor2.selecteazaTimpiAsteptare(ora_curenta))
-                REPUBLICA_DRISTOR2=new TimpAsteptare(republica_dristor2.interval_orar, republica_dristor2.timp);
-        }
-//        REPUBLICA_DRISTOR2=dataBaseHelper.selecteazaTimpDeAsteptare("REPUBLICA_DRISTOR2",ora_curenta);
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "REPUBLICA_PANTELIMON") .allowMainThreadQueries().build();
-        List<Republica_Pantelimon> l8=database.republica_pantelimonDAO().getRepublicaPantelimon();
-        for (Republica_Pantelimon republica_pantelimon : l8)
-        {
-            if(republica_pantelimon.selecteazaTimpiAsteptare(ora_curenta))
-                REPUBLICA_PANTELIMON=new TimpAsteptare(republica_pantelimon.interval_orar, republica_pantelimon.timp);
-        }
-//        REPUBLICA_PANTELIMON=dataBaseHelper.selecteazaTimpDeAsteptare("REPUBLICA_PANTELIMON",ora_curenta);
-        database=Room.databaseBuilder(getApplicationContext(), AppDb.class, "VALEAIALOMITEI_EROILOR2") .allowMainThreadQueries().build();
-        List<ValeaIalomitei_Eroilor2> l9=database.valeaIalomitei_eroilor2DAO().getValeaIalomitei_Eroilor2();
-        for (ValeaIalomitei_Eroilor2 valeaIalomitei_eroilor2 : l9)
-        {
-            if(valeaIalomitei_eroilor2.selecteazaTimpiAsteptare(ora_curenta))
-                VALEAIALOMITEI_EROILOR2=new TimpAsteptare(valeaIalomitei_eroilor2.interval_orar, valeaIalomitei_eroilor2.timp);
-        }
-//        VALEAIALOMITEI_EROILOR2=dataBaseHelper.selecteazaTimpDeAsteptare("VALEAIALOMITEI_EROILOR2",ora_curenta);
-        graf =new ArrayList<>();
-        for(Statie1 statie : statie1)
-        {
-            String vecini1="";
-            if(statie.getVecini()!=null)
-            {
-                for (int i = 0; i < statie.getVecini().length; i++) {
-                    if (i < statie.getVecini().length - 1) {
-                        vecini1 += statie.getVecini()[i] + ",";
-                    }
-                    if (i == statie.getVecini().length - 1) {
-                        vecini1 += statie.getVecini()[i];
-                    }
-                }
-                NodGraf nod=new NodGraf(statie.getId_statie(),statie.getId_linie(),statie.getNume(),vecini1);
-                graf.add(nod);
+        if(!start.equals(end)) {
+            SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+            Date date = new Date(System.currentTimeMillis());
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            cal.add(Calendar.HOUR_OF_DAY, 0);
+            String ora_curenta = formatter.format(cal.getTime());
+            if(ora_curenta.compareTo("23:30:00")>0)
+                ora_curenta="17:00:00";
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "STATII").allowMainThreadQueries().build();
+            lista = database.statieDAO().getStatii();
+            for (Statie statie : lista) {
+                Statie1 s = new Statie1(statie.id_statie, statie.id_linie, statie.nume_statie, statie.vecini);
+                statie1.add(s);
             }
-            else
-            {
-                NodGraf nod = new NodGraf(statie.getId_statie(), statie.getId_linie(), statie.getNume(), null);
-                graf.add(nod);
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "LEGATURI").allowMainThreadQueries().build();
+            lista1 = database.legaturiDAO().getLegaturi();
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "ANGHELSALIGNY_PRECIZIEI").allowMainThreadQueries().build();
+            List<AnghelSaligny_Preciziei> l1 = database.anghelSaligny_precizieiDAO().getAnghelSaligny_Preciziei();
+            for (AnghelSaligny_Preciziei anghelSaligny_preciziei : l1) {
+                if (anghelSaligny_preciziei.selecteazaTimpiAsteptare(ora_curenta))
+                    ANGHELSALIGNY_PRECIZIEI = new TimpAsteptare(anghelSaligny_preciziei.interval_orar, anghelSaligny_preciziei.timp);
             }
-        }
-        rute=new ArrayList<>();
-        for(NodGraf nod : graf)
-        {
-            if(nod.getNume().equals(start))
-            {
-                Ruta ruta=Djikstra(graf,nod,end);
-                if(ruta!=null)
-                {
-                    rute.add(ruta);
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "DRISTOR1_EROILOR").allowMainThreadQueries().build();
+            List<Dristor1_Eroilor> l2 = database.dristor1_eroilorDAO().getDristor1_Eroilor();
+            for (Dristor1_Eroilor dristor1_eroilor : l2) {
+                if (dristor1_eroilor.selecteazaTimpiAsteptare(ora_curenta))
+                    DRISTOR1_EROILOR = new TimpAsteptare(dristor1_eroilor.interval_orar, dristor1_eroilor.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "EROILOR2_ROMANCIERILOR").allowMainThreadQueries().build();
+            List<Eroilor2_Romancierilor> l3 = database.eroilor2_romancierilorDAO().getEroilor2_Romancierilor();
+            for (Eroilor2_Romancierilor eroilor2_romancierilor : l3) {
+                if (eroilor2_romancierilor.selecteazaTimpiAsteptare(ora_curenta))
+                    EROILOR2_ROMANCIERILOR = new TimpAsteptare(eroilor2_romancierilor.interval_orar, eroilor2_romancierilor.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "GARADENORD_STRAULESTI").allowMainThreadQueries().build();
+            List<GaraDeNord_Straulesti> l4 = database.garaDeNord_straulestiDAO().getGaraDeNord_Straulesti();
+            for (GaraDeNord_Straulesti garaDeNord_straulesti : l4) {
+                if (garaDeNord_straulesti.selecteazaTimpiAsteptare(ora_curenta))
+                    GARADENORD_STRAULESTI = new TimpAsteptare(garaDeNord_straulesti.interval_orar, garaDeNord_straulesti.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "PIPERA_BERCENI").allowMainThreadQueries().build();
+            List<Pipera_Berceni> l5 = database.pipera_berceniDAO().getPipera_Berceni();
+            for (Pipera_Berceni pipera_berceni : l5) {
+                if (pipera_berceni.selecteazaTimpiAsteptare(ora_curenta))
+                    PIPERA_BERCENI = new TimpAsteptare(pipera_berceni.interval_orar, pipera_berceni.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "RAULDOAMNEI_EROILOR2").allowMainThreadQueries().build();
+            List<RaulDoamnei_Eroilor2> l6 = database.raulDoamnei_eroilor2DAO().getRaulDoamnei_Eroilor2();
+            for (RaulDoamnei_Eroilor2 raulDoamnei_eroilor2 : l6) {
+                if (raulDoamnei_eroilor2.selecteazaTimpiAsteptare(ora_curenta))
+                    RAULDOAMNEI_EROILOR2 = new TimpAsteptare(raulDoamnei_eroilor2.interval_orar, raulDoamnei_eroilor2.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "REPUBLICA_DRISTOR2").allowMainThreadQueries().build();
+            List<Republica_Dristor2> l7 = database.republica_dristor2DAO().getRepublica_Dristor2();
+            for (Republica_Dristor2 republica_dristor2 : l7) {
+                if (republica_dristor2.selecteazaTimpiAsteptare(ora_curenta))
+                    REPUBLICA_DRISTOR2 = new TimpAsteptare(republica_dristor2.interval_orar, republica_dristor2.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "REPUBLICA_PANTELIMON").allowMainThreadQueries().build();
+            List<Republica_Pantelimon> l8 = database.republica_pantelimonDAO().getRepublicaPantelimon();
+            for (Republica_Pantelimon republica_pantelimon : l8) {
+                if (republica_pantelimon.selecteazaTimpiAsteptare(ora_curenta))
+                    REPUBLICA_PANTELIMON = new TimpAsteptare(republica_pantelimon.interval_orar, republica_pantelimon.timp);
+            }
+            database = Room.databaseBuilder(getApplicationContext(), AppDb.class, "VALEAIALOMITEI_EROILOR2").allowMainThreadQueries().build();
+            List<ValeaIalomitei_Eroilor2> l9 = database.valeaIalomitei_eroilor2DAO().getValeaIalomitei_Eroilor2();
+            for (ValeaIalomitei_Eroilor2 valeaIalomitei_eroilor2 : l9) {
+                if (valeaIalomitei_eroilor2.selecteazaTimpiAsteptare(ora_curenta))
+                    VALEAIALOMITEI_EROILOR2 = new TimpAsteptare(valeaIalomitei_eroilor2.interval_orar, valeaIalomitei_eroilor2.timp);
+            }
+            graf = new ArrayList<>();
+            for (Statie1 statie : statie1) {
+                String vecini1 = "";
+                if (statie.getVecini() != null) {
+                    for (int i = 0; i < statie.getVecini().length; i++) {
+                        if (i < statie.getVecini().length - 1) {
+                            vecini1 += statie.getVecini()[i] + ",";
+                        }
+                        if (i == statie.getVecini().length - 1) {
+                            vecini1 += statie.getVecini()[i];
+                        }
+                    }
+                    NodGraf nod = new NodGraf(statie.getId_statie(), statie.getId_linie(), statie.getNume(), vecini1);
+                    graf.add(nod);
+                } else {
+                    NodGraf nod = new NodGraf(statie.getId_statie(), statie.getId_linie(), statie.getNume(), null);
+                    graf.add(nod);
                 }
             }
+            rute = new ArrayList<>();
+            for (NodGraf nod : graf) {
+                if (nod.getNume().equals(start)) {
+                    Ruta ruta = Djikstra(graf, nod, end);
+                    if (ruta != null) {
+                        rute.add(ruta);
+                    }
+                }
 
+            }
+
+            Collections.sort(rute);
+            ArrayList<Integer> arr = new ArrayList<>();
+            for (Statie1 statie : rute.get(0).getStatii()) {
+                arr.add(statie.getId_statie());
+            }
+
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new RuteFragment(arr, position1, position2, rute.get(0).getTimp()));
+            fragmentTransaction.commit();
         }
-
-        Collections.sort(rute);
-        ArrayList<Integer> arr=new ArrayList<>();
-        for (Statie1 statie: rute.get(0).getStatii()) {
-            arr.add(statie.getId_statie());
-        }
-
-        fragmentManager=getSupportFragmentManager();
-        fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment,new RuteFragment(arr, position1, position2,rute.get(0).getTimp()));
-        fragmentTransaction.commit();
     }
 
     private Ruta Djikstra(ArrayList<NodGraf> graf,NodGraf start,String nume_nod_end)
@@ -418,8 +391,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         {
                             if(extras.getId_linie()==nod.getId_linie())
                             {
-                                if(extras.getId_statie()==161 && nod.getId_statie()==162)
-                                    Log.v("extras","161-162");
                                 for (Legaturi leg : lista1)
                                 {
                                     if (leg.id_vecin1 == extras.getId_statie() && leg.id_vecin2 == i) {
