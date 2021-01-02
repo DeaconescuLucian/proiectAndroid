@@ -39,6 +39,10 @@
                 android:id="@+id/m5"
                 android:icon="@drawable/subway_orange"
                 android:title="RAUL DOAMNEI-EROILOR" />
+            <item
+                android:id="@+id/m6"
+                android:icon="@drawable/subway_orange"
+                android:title="VALEA IALOMITEI-EROILOR" />
         </menu>
     </item>
     <item android:title="">

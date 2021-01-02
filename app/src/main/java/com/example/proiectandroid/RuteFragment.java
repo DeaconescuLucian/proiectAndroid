@@ -100,7 +100,18 @@ public class RuteFragment extends Fragment {
         Integer dur=new Integer(durata);
         if(durata>0)
             tv_durata.setText("Durata estimata a calatoriei: "+dur.toString()+" de minute.");
-        if(durata>60)
+        if(durata==60)
+            tv_durata.setText("Durata estimata a calatoriei: O ora.");
+        if(durata==61)
+            tv_durata.setText("Durata estimata a calatoriei: O ora si un minut");
+        if(durata==62)
+            tv_durata.setText("Durata estimata a calatoriei: O ora si doua minute");
+        if(durata>62) {
+            dur=dur-60;
+            tv_durata.setText("Durata estimata a calatoriei: O ora si " + dur.toString() + " minute");
+            dur=dur+60;
+        }
+        if(durata>79)
         {
             dur=dur-60;
             tv_durata.setText("Durata estimata a calatoriei: O ora si "+dur.toString()+" de minute.");

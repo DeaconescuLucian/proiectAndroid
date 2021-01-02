@@ -268,5 +268,306 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".HomeFragment"
+        app:layout_constraintTop_toBottomOf="@+id/l6"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_horizontal_yellow"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/l7">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/m1_home"
+            android:text="Magistrala 1"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m1_home"
+            android:id="@+id/m1_text"
+            android:text="DRISTOR2-PANTELIMON"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp"/>
+        <ImageView
+            android:id="@+id/img_m1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/metrou_alb"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".HomeFragment"
+        app:layout_constraintTop_toBottomOf="@+id/l7"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_horizontal_blue"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/l8">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/m2_home"
+            android:text="Magistrala 2"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m2_home"
+            android:id="@+id/m2_text"
+            android:text="PIPERA-BERCENI"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp"/>
+        <ImageView
+            android:id="@+id/img_m2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/metrou_alb"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".HomeFragment"
+        app:layout_constraintTop_toBottomOf="@+id/l8"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_horizontal_red"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/l9">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/m3_home"
+            android:text="Magistrala 3"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m3_home"
+            android:id="@+id/m3_text"
+            android:text="PRECIZIEI-ANGHEL SALIGNY"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp"/>
+        <ImageView
+            android:id="@+id/img_m3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/metrou_alb"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".HomeFragment"
+        app:layout_constraintTop_toBottomOf="@+id/l9"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_horizontal_green"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/l10">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/m4_home"
+            android:text="Magistrala 4"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m4_home"
+            android:id="@+id/m4_text"
+            android:text="GARA DE NORD-STRAULESTI"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp"/>
+        <ImageView
+            android:id="@+id/img_m4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/metrou_alb"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".HomeFragment"
+        app:layout_constraintTop_toBottomOf="@+id/l10"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_horizontal_orange"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/l11">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/m5_home"
+            android:text="Magistrala 5"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m5_home"
+            android:id="@+id/m5_text"
+            android:text="RAUL-DOAMNEI-EROILOR"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp"/>
+        <ImageView
+            android:id="@+id/img_m5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/metrou_alb"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".HomeFragment"
+        app:layout_constraintTop_toBottomOf="@+id/l11"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_horizontal_orange"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:id="@+id/l12">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/m6_home"
+            android:text="Magistrala 5"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:textSize="24sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/m6_home"
+            android:id="@+id/m6_text"
+            android:text="VALEA IALOMITEI-EROILOR"
+            android:textColor="#FFFFFF"
+            android:gravity="left"
+            android:textSize="15sp"
+            android:layout_marginLeft="16dp"/>
+        <ImageView
+            android:id="@+id/img_m6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/metrou_alb"
+            android:foregroundGravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

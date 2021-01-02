@@ -50,7 +50,9 @@ import java.util.Calendar;
 import java.util.ListIterator;
 
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,RuteFragment.onFragmentButtonSelected, HomeFragment.onRegisterLayoutPressed, HomeFragment.onLoginLayoutPressed, HomeFragment.onMagistraleLayoutPressed, HomeFragment.onRuteLayoutPressed,RegisterFragment.Registration, LoginFragment.Login, HomeFragment.onProfilLayoutPressed, HomeFragment.onDeconectareLayoutPressed {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,RuteFragment.onFragmentButtonSelected, HomeFragment.onRegisterLayoutPressed, HomeFragment.onLoginLayoutPressed, HomeFragment.onRuteLayoutPressed,RegisterFragment.Registration, LoginFragment.Login, HomeFragment.onProfilLayoutPressed, HomeFragment.onDeconectareLayoutPressed
+    ,HomeFragment.onAbonamenteLayoutPressed,HomeFragment.onBaiLayoutPressed,HomeFragment.onMagistralaLayoutPressed
+{
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -170,6 +172,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentManager=getSupportFragmentManager();
             fragmentTransaction=fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(16,"RAUL DOAMNEI-EROILOR"));
+            fragmentTransaction.commit();
+        }
+        if(item.getItemId()==R.id.m6)
+        {
+            this.setTitle("VALEA IALOMITEI-EROILOR");
+            fragmentManager=getSupportFragmentManager();
+            fragmentTransaction=fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(14,"VALEA IALOMITEI-EROILOR"));
             fragmentTransaction.commit();
         }
         if(item.getItemId()==R.id.rute)
@@ -553,14 +563,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
 
-    @Override
-    public void onMagistralePressed()
-    {
-        fragmentManager=getSupportFragmentManager();
-        fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container_fragment, new LoginFragment());//?????????????????????
-        fragmentTransaction.commit();
-    }
 
     @Override
     public void onRutePressed()
@@ -766,6 +768,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
 
+    @Override
+    public void onAbonamentePressed()
+    {
+        this.setTitle("ABONAMENTE");
+        fragmentManager=getSupportFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment,new AbonamenteFragment());
+        fragmentTransaction.commit();
+    }
+
+
+
     public void create_database(String db)
     {
         AssetManager assets;
@@ -799,4 +813,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @Override
+    public void onBaiPressed() {
+        this.setTitle("BAI");
+        fragmentManager=getSupportFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment,new BaiFragment());
+        fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onMagistralaPressed(int id, String nume) {
+        this.setTitle(nume);
+        fragmentManager=getSupportFragmentManager();
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment,FragmentMagistrala.newInstance(id,nume));
+        fragmentTransaction.commit();
+    }
 }

@@ -33,14 +33,18 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     private FragmentTransaction fragmentTransaction;
     private onRegisterLayoutPressed listener;
     private onLoginLayoutPressed listener2;
-    private onMagistraleLayoutPressed listener3;
     private onRuteLayoutPressed listener4;
     private onProfilLayoutPressed listener5;
     private onDeconectareLayoutPressed listener6;
+    private onAbonamenteLayoutPressed listener7;
+    private onBaiLayoutPressed listener8;
+    private onMagistralaLayoutPressed listener9;
     private ConstraintLayout l1;
     private ConstraintLayout l2;
     private ConstraintLayout l3;
     private ConstraintLayout l4;
+    private ConstraintLayout l5;
+    private ConstraintLayout l6,l7,l8,l9,l10,l11,l12;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -86,12 +90,20 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_home, container, false);
+        l1 = view.findViewById(R.id.l1);
+        l2 = view.findViewById(R.id.l2);
+        l4 = view.findViewById(R.id.l4);
+        l5 = view.findViewById(R.id.l5);
+        l6 = view.findViewById(R.id.l6);
+        l7 = view.findViewById(R.id.l7);
+        l8 = view.findViewById(R.id.l8);
+        l9 = view.findViewById(R.id.l9);
+        l10 = view.findViewById(R.id.l10);
+        l11 = view.findViewById(R.id.l11);
+        l12 = view.findViewById(R.id.l12);
+
         if(userFromDatabase==null)
         {
-            l1 = view.findViewById(R.id.l1);
-            l2 = view.findViewById(R.id.l2);
-            //l3=view.findViewById(R.id.l3);
-            l4 = view.findViewById(R.id.l4);
             l1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -104,35 +116,73 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
                     listener2.onLoginPressed();
                 }
             });
-//        l3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                listener3.onMagistralePressed();
-//            }
-//        });
             l4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener4.onRutePressed();
                 }
             });
+            l5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener7.onAbonamentePressed();
+                }
+            });
+            l6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener8.onBaiPressed();
+                }
+            });
+            l7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(4,"DRISTOR2-PANTELIMON");
+                }
+            });
+            l8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(5,"BERCENI-PIPERA");
+                }
+            });
+            l9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(7,"PRECIZIEI-ANGHEL SALIGNY");
+                }
+            });
+            l10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(10,"GARA DE NORD-STRAULESTI");
+                }
+            });
+            l11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(16,"RAUL DOAMNEI-EROILOR");
+                }
+            });
+            l12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(14,"VALEA IALOMITEI-EROILOR");
+                }
+            });
         }
         else
         {
-            l1 = view.findViewById(R.id.l1);
             TextView tvl11=view.findViewById(R.id.register_home);
             tvl11.setText("Profil");
             TextView tvl12=view.findViewById(R.id.register_text);
             tvl12.setText("Vizualizeaza profilul");
-            l2 = view.findViewById(R.id.l2);
             TextView tvl21=view.findViewById(R.id.login_home);
             tvl21.setText("Deconectare");
             TextView tvl22=view.findViewById(R.id.login_text);
             tvl22.setText("Paraseste aplicatia");
             ImageView img=view.findViewById(R.id.home_icon);
             img.setBackground(ResourcesCompat.getDrawable(getResources(),R.drawable.logout, null));
-            //l3=view.findViewById(R.id.l3);
-            l4 = view.findViewById(R.id.l4);
             l1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -145,16 +195,58 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
                     listener6.onDeconectarePressed();
                 }
             });
-//        l3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                listener3.onMagistralePressed();
-//            }
-//        });
             l4.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener4.onRutePressed();
+                }
+            });
+            l5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener7.onAbonamentePressed();
+                }
+            });
+            l6.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener8.onBaiPressed();
+                }
+            });
+            l7.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(4,"DRISTOR2-PANTELIMON");
+                }
+            });
+            l8.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(5,"BERCENI-PIPERA");
+                }
+            });
+            l9.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(7,"PRECIZIEI-ANGHEL SALIGNY");
+                }
+            });
+            l10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(10,"GARA DE NORD-STRAULESTI");
+                }
+            });
+            l11.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(16,"RAUL DOAMNEI-EROILOR");
+                }
+            });
+            l12.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener9.onMagistralaPressed(14,"VALEA IALOMITEI-EROILOR");
                 }
             });
         }
@@ -177,12 +269,6 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
         {
             throw new ClassCastException(context.toString() + "must implement listener");
         }
-        if(context instanceof onMagistraleLayoutPressed)
-            listener3=(onMagistraleLayoutPressed) context;
-        else
-        {
-            throw new ClassCastException(context.toString() + "must implement listener");
-        }
         if(context instanceof onRuteLayoutPressed)
             listener4=(onRuteLayoutPressed) context;
         else
@@ -201,6 +287,24 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
         {
             throw new ClassCastException(context.toString() + "must implement listener");
         }
+        if(context instanceof onAbonamenteLayoutPressed)
+            listener7=(onAbonamenteLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+        if(context instanceof onBaiLayoutPressed)
+            listener8=(onBaiLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
+        if(context instanceof onBaiLayoutPressed)
+            listener9=(onMagistralaLayoutPressed) context;
+        else
+        {
+            throw new ClassCastException(context.toString() + "must implement listener");
+        }
     }
 
     public interface onRegisterLayoutPressed
@@ -211,11 +315,6 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     public interface onLoginLayoutPressed
     {
         public void onLoginPressed();
-    }
-
-    public interface onMagistraleLayoutPressed
-    {
-        public void onMagistralePressed();
     }
 
     public interface onRuteLayoutPressed
@@ -232,4 +331,20 @@ public class HomeFragment extends Fragment /*implements onRegisterTextPressed*/
     {
         public void onDeconectarePressed();
     }
+
+    public interface onAbonamenteLayoutPressed
+    {
+        public void onAbonamentePressed();
+    }
+
+    public interface onBaiLayoutPressed
+    {
+        public void onBaiPressed();
+    }
+
+    public interface onMagistralaLayoutPressed
+    {
+        public void onMagistralaPressed(int id,String nume);
+    }
+
 }
