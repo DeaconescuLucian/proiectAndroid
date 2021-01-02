@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
 
+        <activity android:name=".AdaugareTimpiAsteptare" />
+        <activity android:name=".Adaugare_legaturi_schimbari" />
+        <activity android:name=".AdaugareStatie" />
         <activity android:name=".MainActivity" android:theme="@style/Theme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
